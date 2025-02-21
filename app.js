@@ -1,8 +1,21 @@
 const express = require("express");
 const path = require("path");
-
 const app = express();
 const port = 3000;
+
+const multer = require("multer");
+
+// multer 설정 (업로드 폴더 및 파일 저장 방식)
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/"); // uploads 폴더에 저장
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname)); // 파일명 중복 방지
+  },
+});
+
+const upload = multer({ storage: storage }); // multer 인스턴스 생성
 
 // 라우팅 파일 불러오기
 const adminRouters = require("./routes/adminRoutes");
@@ -18,6 +31,15 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // uploads
 // EJS 설정
 app.set("view engine", "ejs"); // ejs 파일 html로 변경
 app.set("views", path.join(__dirname, "views")); // ejs 파일 위치 설정
+
+app.post("/products/nowimg", upload.array("productImage", 2), (req, res) => {
+  console.log(req.files, "파일 담겼어?");
+  console.log(req.body, "전체 내용 잘 담겼니?");
+
+  const productImage = req.files.map((file) => "/uploads/" + file.filename);
+
+  res.json({ productImage });
+});
 
 // 라우터
 app.use("/products", adminRouters);

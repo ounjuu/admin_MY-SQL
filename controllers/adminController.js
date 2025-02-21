@@ -5,6 +5,17 @@ const getallProduct = async (req, res) => {
   const data = await adminModel.allproduct();
   res.render("products/index", { data });
 };
+// 메인으로도 전달
+const allProduct = async (req, res) => {
+  const data = await adminModel.allproduct();
+  res.render("products/main", { data });
+};
+
+//하나
+const productOne = async (req, res) => {
+  const data = await adminModel.getOneData(req.params.id);
+  res.render("products/detail", { data });
+};
 
 // 등록
 const createpost = (req, res) => {
@@ -26,8 +37,6 @@ const moveWrite = async (req, res) => {
 
 // 해당 아이템 수정
 const dataUpdate = async (req, res) => {
-  console.log("컨트롤러 파일??", req.files);
-  console.log("컨트롤러 데이터??", req.body);
   const fixData = await adminModel.updateRow(req.body, req.files);
   res.send("200");
 };
@@ -70,4 +79,6 @@ module.exports = {
   deleteData,
   dataUpdate,
   moveWrite,
+  productOne,
+  allProduct,
 };

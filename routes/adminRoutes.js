@@ -31,8 +31,9 @@ const upload = multer({
   },
 });
 router.get("/", adminController.getallProduct);
-
+router.get("/main", adminController.allProduct);
 router.get("/productWrite/:id", adminController.moveWrite);
+router.get("/detail/:id", adminController.productOne);
 // router.post("/post/product", adminController.createpost);
 
 router.post(

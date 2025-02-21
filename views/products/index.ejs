@@ -112,18 +112,23 @@
                   type="file"
                   name="productImage"
                   id="productImage"
+                  style="display: none"
                   required
                   multiple
                 />
                 <div class="imgRightBox">
                   <div id="uploadDiv" class="uploadDiv">
-                    <img src="" alt="Upload Image" id="uploadImage" />
+                    <img
+                      src="/public/img/plus_icon.png"
+                      alt="Upload Image"
+                      id="uploadImage"
+                    />
                   </div>
                   <div id="imgpreviewbox1"><img id="preview1" src="" /></div>
                   <div id="imgpreviewbox2"><img id="preview2" src="" /></div>
                   <div class="imageupText"></div>
+                  <div id="fileName"></div>
                 </div>
-                <div class="imageupText"></div>
               </div>
               <!-- 버튼 -->
               <div class="savebtnWrap">
@@ -186,6 +191,7 @@
       <!-- 푸터 -->
       <div class="footer_wrap"></div>
     </div>
+
     <!-- sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="/public/js/admin.js"></script>

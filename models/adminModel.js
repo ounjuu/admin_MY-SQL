@@ -11,7 +11,6 @@ const pool = mysql.createPool({
 const allproduct = async () => {
   const query = "SELECT * FROM products";
   const [rows] = await pool.query(query);
-
   return rows;
 };
 
@@ -19,7 +18,6 @@ const allproduct = async () => {
 const getOneData = async (userId) => {
   const query = `SELECT * FROM products WHERE id = ${userId} `;
   const [rows] = await pool.query(query);
-
   return rows;
 };
 
@@ -62,7 +60,6 @@ const deleteRow = async (id) => {
 
 // 해당 아이디를 가진 데이터 수정
 const updateRow = async (data, files) => {
-  console.log(data, "??데이터에 뭐 들었어");
   try {
     const productImages = [];
     if (files && files.length > 0) {
