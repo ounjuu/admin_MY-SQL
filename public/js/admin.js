@@ -1,3 +1,17 @@
+//테이블 헤드 생성
+const theadWrap = document.querySelector(".theadWrap");
+theadWrap.innerHTML = `<thead>
+        <tr>
+            <th>이미지</th>
+            <th>상품코드</th>
+            <th>상품명</th>
+            <th>판매가</th>
+            <th>상품상세</th>
+            <th>관리</th>
+            <th>삭제</th>
+        </tr>
+      </thead>`;
+
 const createData = (event) => {
   event.preventDefault();
   const form = document.forms["formName"];
@@ -16,11 +30,7 @@ const createData = (event) => {
   //     alert("모든 값을 입력해주세요!");
   //     return;
   //   }
-  // ✅ FormData 확인 (콘솔 출력)
-  console.log("📌 전송할 데이터:");
-  for (const pair of data.entries()) {
-    console.log(pair[0], ":", pair[1]);
-  }
+
   axios({
     method: "post",
     url: "/products/post/product",
@@ -31,9 +41,29 @@ const createData = (event) => {
   })
     .then((res) => {
       alert("등록성공");
-      window.location.href = "/";
+      window.location.href = "/products";
     })
     .catch((e) => {
       console.log(e);
     });
+};
+
+// 데이터 삭제
+const deleteProduct = (id) => {
+  axios({
+    method: "delete",
+    url: `delete/${id}`,
+  })
+    .then((res) => {
+      alert("삭제성공");
+      window.location.reload();
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+
+// 데이터 수정
+const updatePage = (id) => {
+  window.location.href = `products/productWrite/${id}`;
 };

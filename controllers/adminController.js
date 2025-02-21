@@ -3,12 +3,31 @@ const adminModel = require("../models/adminModel");
 // 전체 상품 가져오는 컨트롤러
 const getallProduct = async (req, res) => {
   const data = await adminModel.allproduct();
-  res.render("index", { data });
+  console.log(data, "data????");
+  res.render("products/index", { data });
 };
 
 // 등록
 const createpost = (req, res) => {
   const createData = adminModel.postData(req.body, req.files);
+  res.send("200");
+};
+
+// 해당 아이디 삭제
+const deleteData = async (req, res) => {
+  await adminModel.deleteRow(req.params.id);
+  res.send("200");
+};
+
+// 수정 페이지 이동
+const moveWrite = async (req, res) => {
+  const data = await adminModel.getOneData(req.params.id);
+  await res.render("products/productWrite", { data });
+};
+
+// 해당 아이템 수정
+const dataUpdate = async (req, res) => {
+  await adminModel.updateRow(req.body, req.files);
   res.send("200");
 };
 
@@ -44,4 +63,10 @@ const createpost = (req, res) => {
 //   }
 // };
 
-module.exports = { getallProduct, createpost };
+module.exports = {
+  getallProduct,
+  createpost,
+  deleteData,
+  dataUpdate,
+  moveWrite,
+};

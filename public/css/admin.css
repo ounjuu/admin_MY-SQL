@@ -1,3 +1,8 @@
 .productAddText {
   color: red;
 }
+
+td img {
+  width: 100px;
+  height: 100px;
+}

@@ -11,24 +11,27 @@ const pool = mysql.createPool({
 const allproduct = async () => {
   const query = "SELECT * FROM products";
   const [rows] = await pool.query(query);
-  console.log(rows);
+
+  return rows;
+};
+
+// 제품 하나 가져오기
+const getOneData = async (userId) => {
+  const query = `SELECT * FROM products WHERE id = ${userId} `;
+  const [rows] = await pool.query(query);
+
   return rows;
 };
 
 //등록하기
 const postData = async (data, files) => {
-  console.log("Received product_id:", data); // 값 확인
-  console.log("Uploaded files:", files); // 업로드된 파일 확인
   try {
     const productImages = [];
-
-    // 이미지가 업로드되었으면, 이미지 경로를 배열에 넣음
     if (files && files.length > 0) {
       files.forEach((file) => {
         productImages.push("/uploads/" + file.filename); // 파일 경로 생성
       });
     }
-
     const query =
       "INSERT INTO products (product_id, name, price, description, category, image_url_1, image_url_2) VALUES (?, ?, ?, ?, ?, ?, ?)";
     await pool.query(query, [
@@ -47,6 +50,42 @@ const postData = async (data, files) => {
   }
 };
 
+// 해당 아이디를 가진 모든 데이터 삭제
+const deleteRow = async (id) => {
+  const query = `DELETE FROM products WHERE id = ${Number(id)}`;
+  try {
+    await pool.query(query, [id]);
+  } catch (e) {
+    console.log("삭제실패");
+  }
+};
+
+// 해당 아이디를 가진 데이터 수정
+const updateRow = async (data) => {
+  console.log(data, "??데이터에 뭐 들었어");
+  try {
+    const productImages = [];
+    if (files && files.length > 0) {
+      files.forEach((file) => {
+        productImages.push("/uploads/" + file.filename); // 파일 경로 생성
+      });
+    }
+
+    const query = `UPDATE products SET name = ?, price = ?, description = ?, category = ?, image_url_1 = ?, image_url_2 = ? where id = ?`;
+
+    await pool.query(query, [
+      data.productName,
+      data.price,
+      data.description,
+      data.category,
+      productImages[0] || "",
+      productImages[1] || "",
+      data.id,
+    ]);
+  } catch (e) {
+    console.log(e);
+  }
+};
 // 등록하기(폼)
 // const postData = async (data) => {
 //   try {
@@ -68,4 +107,4 @@ const postData = async (data, files) => {
 //   }
 // };
 
-module.exports = { allproduct, postData };
+module.exports = { allproduct, postData, deleteRow, updateRow, getOneData };

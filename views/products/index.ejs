@@ -95,6 +95,7 @@
                 </div>
               </div>
               <!-- 상품 타입 선택 -->
+              <div>상품 타입 선택</div>
               <select id="typeSelect" name="productType">
                 <!-- <option value="" disabled selected>TYPE</option> -->
                 <option value="" disabled selected>TYPE</option>
@@ -116,11 +117,7 @@
                 />
                 <div class="imgRightBox">
                   <div id="uploadDiv" class="uploadDiv">
-                    <img
-                      src="/public/img/plus_icon.png"
-                      alt="Upload Image"
-                      id="uploadImage"
-                    />
+                    <img src="" alt="Upload Image" id="uploadImage" />
                   </div>
                   <div id="imgpreviewbox1"><img id="preview1" src="" /></div>
                   <div id="imgpreviewbox2"><img id="preview2" src="" /></div>
@@ -144,7 +141,45 @@
           <div class="alltableWrap">
             <div class="tableName">상품 등록 리스트</div>
             <!-- 테이블 여기에 저장~ -->
-            <div class="mainTableWrap"></div>
+            <div class="mainTableWrap">
+              <table>
+                <thead class="theadWrap"></thead>
+                <tbody>
+                  <% for (let i = 0; i < data.length; i++){ %>
+                  <tr id="tr_<%= data[i].id %>">
+                    <td>
+                      <img
+                        src="/public<%= data[i].image_url_1 %>"
+                        alt="Product Image"
+                      />
+                    </td>
+                    <td>
+                      <a href="/products/detail/<%= data[i].id %>"
+                        ><%= data[i].product_id %></a
+                      >
+                    </td>
+                    <td><%= data[i].name %></td>
+                    <td><%= data[i].price %></td>
+                    <td><%= data[i].description %></td>
+                    <td>
+                      <input
+                        type="button"
+                        value="수정"
+                        onclick="updatePage('<%= data[i].id %>')"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="button"
+                        value="삭제"
+                        onclick="deleteProduct('<%= data[i].id %>')"
+                      />
+                    </td>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
