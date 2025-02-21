@@ -52,7 +52,7 @@ const createData = (event) => {
 const deleteProduct = (id) => {
   axios({
     method: "delete",
-    url: `delete/${id}`,
+    url: `/products/delete/${id}`,
   })
     .then((res) => {
       alert("삭제성공");
