@@ -3,7 +3,6 @@ const adminModel = require("../models/adminModel");
 // 전체 상품 가져오는 컨트롤러
 const getallProduct = async (req, res) => {
   const data = await adminModel.allproduct();
-  console.log(data, "data????");
   res.render("products/index", { data });
 };
 
@@ -27,7 +26,9 @@ const moveWrite = async (req, res) => {
 
 // 해당 아이템 수정
 const dataUpdate = async (req, res) => {
-  await adminModel.updateRow(req.body, req.files);
+  console.log("컨트롤러 파일??", req.files);
+  console.log("컨트롤러 데이터??", req.body);
+  const fixData = await adminModel.updateRow(req.body, req.files);
   res.send("200");
 };
 

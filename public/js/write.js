@@ -1,6 +1,7 @@
 const updateForm = (id) => {
   const form = document.forms["updateData"];
-
+  console.log(id, "id??");
+  console.log(form["productName"].value, "writejs?");
   const data = new FormData();
   data.append("id", id);
   data.append("name", form["productName"].value);
@@ -14,7 +15,7 @@ const updateForm = (id) => {
 
   axios({
     method: "put",
-    url: "/products/update",
+    url: `/products/update/${id}`,
     data: data,
   })
     .then((res) => {

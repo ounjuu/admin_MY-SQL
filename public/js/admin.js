@@ -65,5 +65,5 @@ const deleteProduct = (id) => {
 
 // 데이터 수정
 const updatePage = (id) => {
-  window.location.href = `products/productWrite/${id}`;
+  window.location.href = `/products/productWrite/${id}`;
 };

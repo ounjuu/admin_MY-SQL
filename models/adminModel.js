@@ -61,7 +61,7 @@ const deleteRow = async (id) => {
 };
 
 // 해당 아이디를 가진 데이터 수정
-const updateRow = async (data) => {
+const updateRow = async (data, files) => {
   console.log(data, "??데이터에 뭐 들었어");
   try {
     const productImages = [];
@@ -70,11 +70,10 @@ const updateRow = async (data) => {
         productImages.push("/uploads/" + file.filename); // 파일 경로 생성
       });
     }
-
     const query = `UPDATE products SET name = ?, price = ?, description = ?, category = ?, image_url_1 = ?, image_url_2 = ? where id = ?`;
 
     await pool.query(query, [
-      data.productName,
+      data.name,
       data.price,
       data.description,
       data.category,
@@ -84,6 +83,7 @@ const updateRow = async (data) => {
     ]);
   } catch (e) {
     console.log(e);
+    throw new Error("데이터 수정 실패");
   }
 };
 // 등록하기(폼)

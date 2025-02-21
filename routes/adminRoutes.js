@@ -42,7 +42,11 @@ router.post(
 );
 
 //update
-router.put("/update", adminController.dataUpdate);
+router.put(
+  "/update/:id",
+  upload.array("productImage", 2),
+  adminController.dataUpdate
+);
 
 // delelte
 router.delete("/delete/:id", adminController.deleteData);
