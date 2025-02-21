@@ -130,3 +130,175 @@ const deleteProduct = (id) => {
 const updatePage = (id) => {
   window.location.href = `/products/productWrite/${id}`;
 };
+
+// 데이터 검사
+let nameCheck = false;
+let idCheck = false;
+let priceCheck = false;
+let contentCheck = false;
+let imageAdd = false;
+let typecheck = false;
+let firstidCheck = false;
+let product_data = [];
+
+// 이름 실시간 검사
+const nameonInput = () => {
+  let namedataup = document.querySelector("#productName").value;
+  if (namedataup.length < 1) {
+    document.querySelector(".nameText").innerText = "상품명을 입력하세요.";
+    nameCheck = false;
+  } else {
+    document.querySelector(".nameText").innerText = "";
+    nameCheck = true;
+  }
+  validCheck();
+};
+
+// 가격 실시간 검사
+const priceonInput = () => {
+  let pricedataup = document.querySelector("#price").value;
+  if (pricedataup.length < 1) {
+    document.querySelector(".priceText").innerText = "가격을 입력하세요.";
+    priceCheck = false;
+  } else {
+    document.querySelector(".priceText").innerText = "";
+    priceCheck = true;
+  }
+  validCheck();
+};
+
+// 상품 상세설명 실시간 검사
+const contentonInput = () => {
+  let contentdataup = document.querySelector("#productContent").value;
+  if (contentdataup.length < 1) {
+    document.querySelector(".contentText").innerText =
+      "상품의 설명을 입력하세요.";
+    contentCheck = false;
+  } else {
+    document.querySelector(".contentText").innerText = "";
+    contentCheck = true;
+  }
+  validCheck();
+};
+
+// ID 실시간 검사
+const idonInput = () => {
+  let productId = document.querySelector("#productId").value;
+  if (productId.length < 1) {
+    document.querySelector(".idText").style.color = "red";
+    document.querySelector(".idText").innerText =
+      "등록할 상품의 코드를 숫자로 입력하세요.";
+
+    idCheck = false;
+  } else {
+    document.querySelector(".idText").innerText = "";
+    idCheck = true;
+  }
+  validCheck();
+};
+
+//이미지 onchange
+const imageonChange = () => {
+  let productImage = document.querySelector("#productImage").value;
+  if (productImage.length < 1) {
+    document.querySelector(".imageupText").innerText = "이미지를 등록하세요.";
+    document.querySelector("#preview").src = "";
+    document.querySelector("#preview").style.display = "none";
+    document.getElementById("imgpreviewbox").style.border = "solid 1px #ccc";
+    imageAdd = false;
+  } else {
+    document.querySelector(".imageupText").innerText = "";
+    imageAdd = true;
+  }
+  validCheck();
+};
+
+// 타입 검사
+document.getElementById("typeSelect").addEventListener("change", function () {
+  const selectedValue = this.value;
+  if (selectedValue === "") {
+    document.querySelector(".typeText").style.color = "red";
+    document.querySelector(".typeText").innerText =
+      "등록할 상품의 타입을 선택하세요.";
+    typecheck = true;
+  } else {
+    typecheck = false;
+    document.querySelector(".typeText").innerText = "";
+  }
+});
+
+// 아이디 중복 검사 버튼 클릭 시 axios 서버 확인
+const productId = document.querySelector("#productId");
+const idCheckBtn = document.querySelector(".idCheckBtn");
+const idText = document.querySelector(".idText");
+idCheckBtn.addEventListener("click", () => {
+  console.log(productId.value, "productId.value???");
+  let idData = { id: productId.value };
+  axios({
+    method: "post",
+    url: "/products/idcheck",
+    data: idData,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      if (res.data !== "중복입니다.") {
+        // 중복되지 않은 경우
+        idText.innerText = "사용 가능한 상품 코드입니다.";
+        idText.style.color = "green";
+      } else {
+        // 중복된 경우
+        idText.innerText = "중복입니다. 다른 상품 코드를 입력해주세요.";
+        idText.style.color = "red";
+      }
+    })
+    .catch((error) => {
+      // 네트워크 오류나 서버 에러 처리
+      idText.innerHTML = "서버에 연결할 수 없습니다.";
+      idText.style.color = "red";
+      firstidCheck = false;
+      validCheck();
+    });
+});
+
+// 유효성 검사
+let saveBtn = document.querySelector("#saveBtn");
+function validCheck() {
+  if (
+    nameCheck === true &&
+    idCheck === true &&
+    priceCheck === true &&
+    contentCheck === true &&
+    imageAdd === true &&
+    typecheck === true
+  ) {
+    saveBtn.disabled = false;
+  } else {
+    saveBtn.disabled = true;
+  }
+}
+
+// 초기화 함수
+function resetForm() {
+  // 텍스트 초기화
+  document.querySelector(".nameText").innerText = "";
+  document.querySelector(".priceText").innerText = "";
+  document.querySelector(".contentText").innerText = "";
+  document.querySelector(".idText").innerText = "";
+  document.querySelector(".imageupText").innerText = "";
+  document.getElementById("preview").src = "";
+  document.querySelector("#preview").style.display = "none";
+  document.getElementById("imgpreviewbox").style.border = "none";
+  document.getElementById("fileName").innerText = "";
+  document.querySelector(".typeText").innerText = "";
+
+  // 체크 변수 초기화
+  nameCheck = false;
+  priceCheck = false;
+  contentCheck = false;
+  idCheck = false;
+  imageAdd = false;
+  typecheck = false;
+  firstidCheck = false;
+}

@@ -30,6 +30,7 @@ const upload = multer({
     }
   },
 });
+
 router.get("/", adminController.getallProduct);
 router.get("/main", adminController.allProduct);
 router.get("/productWrite/:id", adminController.moveWrite);
@@ -41,6 +42,9 @@ router.post(
   upload.array("productImage", 2), // 최대 2개의 파일을 받을 수 있음
   adminController.createpost // 파일과 함께 데이터를 처리하는 컨트롤러
 );
+
+// id check
+router.post("/idcheck", adminController.checkProductId);
 
 //update
 router.put(

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Hover Effect</title>
+    <style>
+      body {
+        color: white;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .image-container {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      .image-container img {
+        display: block;
+        width: 300px; /* 적절한 크기로 조정 */
+        height: auto;
+        transition: 0.3s ease;
+      }
+
+      .hover-effect {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at var(--x, 50%) var(--y, 50%),
+          rgba(255, 255, 255, 0.2) 0%,
+          transparent 50%
+        );
+        mix-blend-mode: difference; /* 배경과 섞이게 함 */
+        pointer-events: none; /* 마우스 이벤트 방해 X */
+        transition: background 0.2s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image-container">
+      <img src="/public/uploads/1740102283480.jpg" alt="이미지" />
+      <div class="hover-effect"></div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".image-container").forEach((container) => {
+        const hoverEffect = container.querySelector(".hover-effect");
+
+        container.addEventListener("mousemove", (e) => {
+          const rect = container.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+          hoverEffect.style.setProperty("--x", `${x}%`);
+          hoverEffect.style.setProperty("--y", `${y}%`);
+        });
+      });
+    </script>
+  </body>
+</html>

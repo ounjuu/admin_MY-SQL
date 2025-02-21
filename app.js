@@ -23,7 +23,8 @@ const adminRouters = require("./routes/adminRoutes");
 app.use(express.urlencoded({ extended: true }));
 // json 형식으로 받을 것임
 app.use(express.json());
-
+// 라우터
+app.use("/products", adminRouters);
 // 정적 파일 제공
 app.use("/public", express.static(path.join(__dirname, "public"))); // public 폴더를 /public으로 제공
 app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // uploads 폴더를 /uploads로 제공
@@ -33,16 +34,10 @@ app.set("view engine", "ejs"); // ejs 파일 html로 변경
 app.set("views", path.join(__dirname, "views")); // ejs 파일 위치 설정
 
 app.post("/products/nowimg", upload.array("productImage", 2), (req, res) => {
-  console.log(req.files, "파일 담겼어?");
-  console.log(req.body, "전체 내용 잘 담겼니?");
-
   const productImage = req.files.map((file) => "/uploads/" + file.filename);
 
   res.json({ productImage });
 });
-
-// 라우터
-app.use("/products", adminRouters);
 
 // 404 에러 페이지 처리
 app.use((req, res) => {

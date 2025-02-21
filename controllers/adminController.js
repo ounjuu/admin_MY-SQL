@@ -41,6 +41,20 @@ const dataUpdate = async (req, res) => {
   res.send("200");
 };
 
+// 상품 ID 중복 검사 컨트롤러
+const checkProductId = async (req, res) => {
+  const { id } = req.body;
+
+  // 상품 ID가 제공되지 않았으면 400 오류 반환
+  if (!id) {
+    return res.status(400).json({ error: "상품 ID가 제공되지 않았습니다." });
+  }
+  //  받은 ID 확인
+  // 모델에서 중복 확인
+  const data = await adminModel.checkProductId(id);
+  res.send(data);
+};
+
 // 상품 추가 컨트롤러(폼)
 // const addProduct = async (req, res) => {
 //   console.log(req.files); // 파일 확인
@@ -81,4 +95,5 @@ module.exports = {
   moveWrite,
   productOne,
   allProduct,
+  checkProductId,
 };

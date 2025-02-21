@@ -1,3 +1,4 @@
+/* General Styles */
 .productAddText {
   color: red;
 }
@@ -5,4 +6,397 @@
 td img {
   width: 100px;
   height: 100px;
+}
+
+.wrapper {
+  max-width: 1280px;
+}
+
+input {
+  border: solid #ccc 1px;
+}
+
+/* Fonts */
+.notoSansfont {
+  font-family: "Noto Sans KR", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Central Content Alignment */
+.contentWrapBox {
+  display: flex;
+  justify-content: center;
+}
+
+.formBox {
+  margin: 25px 20px 10px 20px;
+  border: 1px solid #ccc;
+}
+
+.addBox {
+  width: 80%;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+
+/* Product Add Section */
+.productAddText {
+  font-size: 13px;
+  height: auto;
+  padding: 0px 15px;
+  font-weight: bold;
+  background-color: rgb(52, 52, 52);
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.labelBox {
+  width: 20%;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  background-color: #f3f3f3;
+  color: rgb(32, 32, 32);
+}
+
+.blueText {
+  color: rgb(67, 108, 240);
+  font-size: 11px;
+}
+
+/* Input Box */
+.inputBox {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+#productName,
+#price,
+#productId {
+  outline: none;
+  height: 25px;
+  width: 200px;
+  margin: 10px 0px 10px 10px;
+  font-size: 11px;
+  padding: 0px 5px 0px 5px;
+}
+
+#productName {
+  width: 350px;
+}
+
+#productName:focus,
+#price:focus,
+#productId:focus {
+  border-color: #626262;
+}
+
+.formBoxdiv {
+  display: flex;
+}
+
+/* Image Upload */
+.uploadDiv,
+#imgpreviewbox {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #ccc solid 1px;
+  cursor: pointer;
+}
+
+#uploadImage {
+  width: 25px;
+  height: 25px;
+}
+
+#preview {
+  width: 100px;
+  height: 100px;
+  display: none;
+}
+
+/* ID Check Button */
+.idCheckBtn {
+  border: 1px solid #ccc;
+  padding: 0px 5px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.idText {
+  font-size: 10px;
+  color: green;
+  margin-left: 10px;
+}
+
+/* Textarea */
+#productContent {
+  width: 90%;
+  height: 150px;
+  padding: 10px;
+  resize: none;
+  border: 1px solid #ccc;
+  outline: none;
+  margin: 10px 0px 10px 10px;
+  font-size: 11px;
+}
+
+.nameText {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: red;
+  padding-left: 10px;
+}
+
+.contentText,
+.priceText {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: red;
+}
+
+#productContent:focus {
+  border-color: #626262;
+}
+
+.inputBox,
+.textareaBox {
+  width: 80%;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Image Upload Box */
+.imgRightBox {
+  display: flex;
+  width: 80%;
+  border-bottom: 1px solid #ccc;
+}
+
+.uploadDiv,
+#imgpreviewbox {
+  margin: 10px 0px 10px 10px;
+}
+
+.fileNameText {
+  font-size: 11px;
+  color: #333;
+  text-align: center;
+  width: 100px;
+}
+
+#fileName {
+  height: 20px;
+  margin: 90px 10px 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  color: #333;
+}
+
+.imageupText {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: red;
+  font-size: 10px;
+  height: 20px;
+  margin: 90px 0px 10px 0px;
+}
+
+/* Save Button */
+.savebtnWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0px 10px 0px;
+}
+
+.svbtn {
+  background-color: #333;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin-right: 10px;
+}
+
+.svbtn:hover {
+  background-color: #000;
+}
+
+.svbtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Table Styles */
+.alltableWrap {
+  margin: 25px 20px 10px 20px;
+}
+
+.tableName {
+  font-size: 13px;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  background-color: #343434;
+  color: white;
+}
+
+.mainTableWrap {
+  font-size: 11px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+table {
+  width: 95%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+}
+
+.tbimgWrap {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.tbimgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tdsize1,
+.tdsize2,
+.tdsize3,
+.tdsize4 {
+  width: 120px;
+  height: 120px;
+}
+
+.tdsize5 {
+  width: 200px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.tdsize5 div {
+  height: 100%;
+  overflow-y: auto;
+  word-wrap: break-word;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.tdsize6 {
+  width: 80px;
+  text-align: center;
+}
+
+.deletebtn {
+  border: 1px solid #ccc;
+  padding: 0px 5px;
+  font-size: 11px;
+  display: block;
+  margin: 0 auto;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    padding: 10px;
+  }
+  .contentWrapBox {
+    flex-direction: column;
+    align-items: center;
+  }
+  .addBox {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .inputBox input,
+  .textareaBox textarea,
+  .inputBox select {
+    width: 100%;
+  }
+  .savebtnWrap {
+    justify-content: center;
+  }
+  table {
+    width: 100%;
+    font-size: 10px;
+  }
+  .labelBox {
+    width: 30%;
+    font-size: 10px;
+    padding: 5px;
+  }
+  .inputBox {
+    width: 70%;
+  }
+  .uploadDiv,
+  #imgpreviewbox {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Basic Input & Textarea Styling */
+.inputBox input,
+.textareaBox textarea,
+.inputBox select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.inputBox select {
+  appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.inputBox select:focus,
+.inputBox input:focus,
+.textareaBox textarea:focus {
+  outline: none;
+  border-color: #007bff;
 }

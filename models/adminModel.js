@@ -83,6 +83,30 @@ const updateRow = async (data, files) => {
     throw new Error("데이터 수정 실패");
   }
 };
+
+// 상품 ID 중복 체크
+// const checkProductId = (id, callback) => {
+//   const query = "SELECT * FROM products WHERE product_id = ?";
+//   pool.query(query, [id], (err, result) => {
+//     if (err) {
+//       return callback(err, null);
+//     }
+//     callback(null, result.length > 0);
+//   });
+// };
+
+const checkProductId = async (id) => {
+  const query = `SELECT * FROM products WHERE product_id = ${id} `;
+
+  const [rows] = await pool.query(query);
+
+  if (rows.length > 0) {
+    return "중복입니다.";
+  } else {
+    return "사용가능합니다.";
+  }
+};
+
 // 등록하기(폼)
 // const postData = async (data) => {
 //   try {
@@ -104,4 +128,11 @@ const updateRow = async (data, files) => {
 //   }
 // };
 
-module.exports = { allproduct, postData, deleteRow, updateRow, getOneData };
+module.exports = {
+  allproduct,
+  postData,
+  deleteRow,
+  updateRow,
+  getOneData,
+  checkProductId,
+};
