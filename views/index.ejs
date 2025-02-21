@@ -17,12 +17,7 @@
         <div class="addBox">
           <div class="productAddText"><p>상품 등록</p></div>
           <div class="formBox">
-            <form
-              name="formName"
-              action="/products/upload"
-              method="post"
-              enctype="multipart/form-data"
-            >
+            <form name="formName" method="post" enctype="multipart/form-data">
               <!-- 상품명 -->
               <div class="nameBox formBoxdiv">
                 <div class="labelBox">
@@ -135,7 +130,12 @@
               </div>
               <!-- 버튼 -->
               <div class="savebtnWrap">
-                <button type="submit" id="saveBtn" class="svbtn bottomfont">
+                <button
+                  type="submit"
+                  id="saveBtn"
+                  class="svbtn bottomfont"
+                  onclick="createData(event)"
+                >
                   저장
                 </button>
               </div>
