@@ -1,3 +1,10 @@
+/* body */
+body {
+  position: relative;
+  max-width: 1280px;
+  margin-top: 64px;
+}
+
 /* General Styles */
 .productAddText {
   color: red;
@@ -47,7 +54,7 @@ input {
   height: auto;
   padding: 0px 15px;
   font-weight: bold;
-  background-color: rgb(52, 52, 52);
+  background-color: #0b43f7;
   color: white;
   display: flex;
   align-items: center;
@@ -230,7 +237,7 @@ input {
 }
 
 .svbtn {
-  background-color: #333;
+  background-color: #0b43f7;
   color: white;
   font-size: 10px;
   font-weight: bold;
@@ -243,7 +250,7 @@ input {
 }
 
 .svbtn:hover {
-  background-color: #000;
+  background-color: #506ecf;
 }
 
 .svbtn:disabled {
@@ -262,7 +269,7 @@ input {
   font-weight: bold;
   display: flex;
   align-items: center;
-  background-color: #343434;
+  background-color: #0b43f7;
   color: white;
 }
 
@@ -340,7 +347,6 @@ td {
 @media (max-width: 768px) {
   .wrapper {
     width: 100%;
-    padding: 10px;
   }
   .contentWrapBox {
     flex-direction: column;

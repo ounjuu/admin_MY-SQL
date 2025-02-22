@@ -10,7 +10,7 @@
   <body>
     <div class="wrapper">
       <!-- 헤더 만들기 -->
-      <div class="shopHeader"></div>
+      <div class="shopHeader"><%- include('header.ejs') %></div>
       <!-- 본문 시작 -->
       <div class="contentWrapBox">
         <!-- 등록 부분 -->
@@ -196,11 +196,12 @@
         </div>
       </div>
       <!-- 푸터 -->
-      <div class="footer_wrap"></div>
+      <div class="footer_wrap"><%- include('footer.ejs') %></div>
     </div>
 
     <!-- sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="/public/js/admin.js"></script>
+    <script src="/public/js/header.js"></script>
   </body>
 </html>

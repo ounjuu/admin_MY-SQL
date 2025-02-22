@@ -1,0 +1,228 @@
+/* 기본 설정 */
+body {
+  max-width: 1280px;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration-line: none;
+  color: inherit;
+}
+
+/* 메뉴 버튼 토글 */
+.menu-toggle {
+  display: none; /* 기본적으로 버튼 숨기기 */
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* 헤더 배경 */
+#allWrap {
+  background-color: #0b43f7;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 64px;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+}
+
+.headerWrap {
+  position: relative;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  width: 97%;
+  margin: 0 auto;
+  align-items: center;
+  max-width: 1280px;
+}
+
+.headerinlogo {
+  position: absolute;
+  width: 120px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%);
+  padding-top: 10px;
+}
+
+.headerinlogo img {
+  width: 100%;
+}
+
+/* 헤더 왼쪽 */
+.colorYellow {
+  color: yellow;
+}
+
+.headerinLeft {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap; /* 줄바꿈 허용 */
+}
+.headerinLeft ul {
+  display: flex;
+  align-items: center;
+}
+.headerinLeft li {
+  padding-right: 10px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* 메뉴 버튼 클릭 후 메뉴가 세로로 나타나도록 */
+.headerinLeft .menu.show {
+  display: flex;
+  flex-direction: column; /* 세로로 나열 */
+}
+/* 추가끝 */
+
+/* 헤더 오른쪽 */
+.headerinRight {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap; /* 줄바꿈 허용 */
+  position: relative;
+}
+
+.headerinRight li {
+  display: flex;
+  padding-left: 10px;
+}
+
+.headerinRight li img {
+  width: 90%;
+}
+
+/* 화면 크기 768px */
+@media screen and (max-width: 768px) {
+  .headerWrap {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  /* 메뉴를 세로로 표시하는 클래스 */
+  .headerinLeft {
+    display: none; /* 메뉴 항목을 세로로 나열 */
+    position: absolute;
+    top: 54px;
+    left: 0px;
+    padding-top: 10px;
+    width: 100px;
+    background-color: #0b43f7;
+  }
+
+  .headerinLeft li {
+    width: 100%; /* 화면에 꽉 차게 */
+    display: flex;
+    align-items: center;
+    height: 40px;
+    justify-content: center;
+  }
+  .headerinLeft li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headerinRight {
+    position: absolute;
+    right: 0;
+    padding-top: 10px;
+    padding-right: 0px;
+    margin: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .headerinRight li img {
+    width: 65%;
+  }
+  .headerinRight li {
+    padding-left: 0px;
+  }
+
+  .headerinLeftshow {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .headerWrap {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .headerinLeft {
+    display: none;
+    position: absolute;
+    top: 54px;
+    left: 0px;
+    padding-top: 10px;
+    width: 100px;
+    background-color: #0b43f7;
+  }
+
+  .headerinLeft li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    justify-content: center;
+  }
+  .headerinLeft li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headerinRight {
+    padding-right: 0px;
+    margin: 5px;
+  }
+
+  .headerinRight li img {
+    width: 50%;
+  }
+
+  .headerinLeftshow {
+    display: block;
+  }
+  .cartNumber {
+    margin-right: 3px;
+  }
+}
+
+.cartNumber {
+  position: absolute;
+  background-color: #fff;
+  font-weight: bold;
+  border-radius: 25px;
+  color: #000;
+  width: 14px;
+  height: 14px;
+  text-align: center;
+  bottom: -3px;
+  right: -6px;
+  font-size: 10px;
+  font-weight: bold;
+}
