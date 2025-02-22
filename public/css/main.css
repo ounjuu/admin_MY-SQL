@@ -3,11 +3,10 @@ html,
 body {
   height: 100%;
   margin: 0;
-  margin-top: 64px;
+  padding: 0;
 }
 body {
   max-width: 1280px;
-  padding: 0;
 }
 ul,
 li {
@@ -19,7 +18,6 @@ a {
   text-decoration-line: none;
   color: inherit;
 }
-
 .allWrapper {
   display: flex;
   flex-direction: column;
@@ -28,4 +26,74 @@ a {
 
 .shopContent {
   flex: 1;
+}
+.shopFooter {
+  margin-top: auto;
+}
+
+/* 본문 */
+.kikicategory {
+  display: flex;
+  background-color: white;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  border-right: solid 1px black;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.kikicategory .category-item:last-child {
+  border-right: 0;
+}
+
+.kikicategory .category-item {
+  flex-basis: 16.66%;
+}
+
+@media (max-width: 748px) {
+  .kikicategory .category-item {
+    flex-basis: 33.33%;
+  }
+}
+
+@media (max-width: 480px) {
+  .kikicategory .category-item {
+    flex-basis: 50%;
+  }
+}
+
+/* 홍보 문구 흘러가는 효과 */
+.eventTexts {
+  white-space: nowrap;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #0b43f7;
+  height: 50px;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.eventInnerTexts {
+  display: inline-block;
+  color: white;
+  animation: eventTextFlow 100s linear infinite;
+  font-size: 18px; /* 폰트 크기 설정 (필요 시 조정) */
+  line-height: 50px;
+}
+@keyframes eventTextFlow {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

@@ -86,19 +86,19 @@
                   <select id="typeSelect" name="productType">
                     <!-- <option value="" disabled selected>TYPE</option> -->
                     <option
-                      value="thread <%= data[0].product_type === 'thread' ? 'selected' : '' %>"
+                      value="living <%= data[0].product_type === 'living' ? 'selected' : '' %>"
                     >
-                      실
+                      LIVING
                     </option>
                     <option
-                      value="needle <%= data[0].product_type === 'needle' ? 'selected' : '' %>"
+                      value="outdoor <%= data[0].product_type === 'outdoor' ? 'selected' : '' %>"
                     >
-                      바늘/도구
+                      OUTDOOR
                     </option>
                     <option
-                      value="package <%= data[0].product_type === 'package' ? 'selected' : '' %>"
+                      value="fashion <%= data[0].product_type === 'fashion' ? 'selected' : '' %>"
                     >
-                      패키지
+                      FASHION
                     </option>
                   </select>
                 </div>
