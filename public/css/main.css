@@ -2,27 +2,12 @@
 html,
 body {
   height: 100%;
-
   margin: 0;
   margin-top: 64px;
-  padding: 0;
-}
-.allWrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.shopContent {
-  flex: 1;
-}
-
-.my_footer {
-  margin-top: auto;
 }
 body {
   max-width: 1280px;
-  margin-top: 64px;
+  padding: 0;
 }
 ul,
 li {
@@ -33,4 +18,14 @@ li {
 a {
   text-decoration-line: none;
   color: inherit;
+}
+
+.allWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.shopContent {
+  flex: 1;
 }

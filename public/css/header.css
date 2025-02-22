@@ -42,7 +42,7 @@ a {
   height: 64px;
   display: flex;
   justify-content: space-between;
-  width: 97%;
+  width: 95%;
   margin: 0 auto;
   align-items: center;
   max-width: 1280px;
@@ -54,7 +54,7 @@ a {
   left: 50%;
   right: 50%;
   transform: translate(-50%);
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 
 .headerinlogo img {
@@ -112,7 +112,7 @@ a {
 @media screen and (max-width: 768px) {
   .headerWrap {
     justify-content: flex-start;
-    width: 100%;
+    width: 90%;
   }
   /* 메뉴를 세로로 표시하는 클래스 */
   .headerinLeft {
@@ -167,7 +167,7 @@ a {
 @media screen and (max-width: 480px) {
   .headerWrap {
     justify-content: flex-start;
-    width: 100%;
+    width: 88%;
   }
 
   .headerinLeft {
