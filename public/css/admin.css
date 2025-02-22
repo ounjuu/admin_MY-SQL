@@ -55,6 +55,7 @@ input {
   width: 80%;
   border: 1px solid #ccc;
   margin: 20px;
+  margin-bottom: 150px;
 }
 
 .productAddText {
@@ -413,6 +414,7 @@ td {
   .addBox {
     width: 100%;
     margin: 10px 0;
+    margin-bottom: 120px;
   }
   .inputBox input,
   .textareaBox textarea,
@@ -449,6 +451,39 @@ td {
 
   .imageupText {
     display: none;
+  }
+}
+
+/* 반응형 480 */
+@media (max-width: 768px) {
+  .labelBox {
+    width: 30%;
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  #typeSelect {
+    font-size: 8px;
+  }
+
+  .uploadDiv,
+  #imgpreviewbox1,
+  #imgpreviewbox2 {
+    width: 50px;
+    height: 50px;
+  }
+
+  #productName,
+  #price,
+  #productId {
+    width: 150px;
+  }
+  .idCheckBtn {
+    font-size: 8px;
+  }
+
+  #typeSelect {
+    width: 150px;
   }
 }
 
