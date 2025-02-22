@@ -25,15 +25,15 @@ document.getElementById("productImage").addEventListener("change", function () {
   const files = fileInput.files;
 
   if (!files.length) {
-    document.getElementById("fileName").innerText = "선택된 파일 없음";
+    document.getElementById("imageupText").innerText = "선택된 파일 없음";
     return;
   }
 
-  // 파일명 표시 (여러 개일 경우 , 로 구분)
-  const fileNames = Array.from(files)
-    .map((file) => file.name)
-    .join(", ");
-  document.getElementById("fileName").innerText = fileNames;
+  // // 파일명 표시 (여러 개일 경우 , 로 구분)
+  // const fileNames = Array.from(files)
+  //   .map((file) => file.name)
+  //   .join(", ");
+  // document.getElementById("imageupText").innerText = fileNames;
 
   const formData = new FormData();
   for (let file of files) {
@@ -202,9 +202,12 @@ const imageonChange = () => {
   let productImage = document.querySelector("#productImage").value;
   if (productImage.length < 1) {
     document.querySelector(".imageupText").innerText = "이미지를 등록하세요.";
-    document.querySelector("#preview").src = "";
-    document.querySelector("#preview").style.display = "none";
-    document.getElementById("imgpreviewbox").style.border = "solid 1px #ccc";
+    document.querySelector("#preview1").src = "";
+    document.querySelector("#preview2").src = "";
+    document.querySelector("#preview1").style.display = "none";
+    document.querySelector("#preview2").style.display = "none";
+    document.getElementById("imgpreviewbox1").style.border = "solid 1px #ccc";
+    document.getElementById("imgpreviewbox2").style.border = "solid 1px #ccc";
     imageAdd = false;
   } else {
     document.querySelector(".imageupText").innerText = "";
@@ -292,7 +295,6 @@ function resetForm() {
   document.querySelector("#preview").style.display = "none";
   document.getElementById("imgpreviewbox1").style.border = "none";
   document.getElementById("imgpreviewbox2").style.border = "none";
-  document.getElementById("fileName").innerText = "";
   document.querySelector(".typeText").innerText = "";
 
   // 체크 변수 초기화

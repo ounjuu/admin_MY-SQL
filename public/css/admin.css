@@ -5,7 +5,6 @@ body {
   margin-top: 64px;
 }
 
-/* General Styles */
 .productAddText {
   color: red;
 }
@@ -23,11 +22,22 @@ input {
   border: solid #ccc 1px;
 }
 
-/* Fonts */
-.notoSansfont {
-  font-family: "Noto Sans KR", serif;
-  font-optical-sizing: auto;
+/* 폰트 */
+.nanum-gothic-regular {
+  font-family: "Nanum Gothic", serif;
   font-weight: 400;
+  font-style: normal;
+}
+
+.nanum-gothic-bold {
+  font-family: "Nanum Gothic", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.nanum-gothic-extrabold {
+  font-family: "Nanum Gothic", serif;
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -48,7 +58,7 @@ input {
 }
 
 .productAddText {
-  font-size: 35px;
+  font-size: 25px;
   height: auto;
   padding: 10px 35px;
   font-weight: bold;
@@ -78,7 +88,6 @@ input {
   border-right: 1px solid #ccc;
   display: flex;
   align-items: center;
-  background-color: #f3f3f3;
   color: rgb(32, 32, 32);
 }
 
@@ -145,13 +154,13 @@ input {
   height: 25px;
 }
 
-#preview {
+#preview1,
+#preview2 {
   width: 100px;
   height: 100px;
   display: none;
 }
 
-/* ID Check Button */
 .idCheckBtn {
   border: 1px solid #ccc;
   padding: 0px 5px;
@@ -211,7 +220,25 @@ input {
   display: flex;
   width: 80%;
   border-bottom: 1px solid #ccc;
+  position: relative;
 }
+.imgRightBox {
+  position: relative; /* 부모 div에 상대적인 위치 지정 */
+}
+
+.imageupText {
+  position: absolute; /* 절대 위치 지정 */
+  bottom: 0; /* 아래쪽으로 배치 */
+  right: 20px; /* 오른쪽으로 배치 */
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: red;
+  font-size: 10px;
+  height: 20px;
+  margin: 10px 0px 10px 0px;
+}
+
 .imgRightInBox {
   display: flex;
 }
@@ -238,7 +265,7 @@ input {
   text-align: center;
   width: 100px;
 }
-
+/* 
 #fileName {
   height: 20px;
   margin: 10px 10px 10px 10px;
@@ -248,20 +275,8 @@ input {
   align-items: center;
   font-size: 10px;
   color: #333;
-}
+} */
 
-.imageupText {
-  background-color: blue;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  color: red;
-  font-size: 10px;
-  height: 20px;
-  margin: 10px 0px 10px 0px;
-}
-
-/* Save Button */
 .savebtnWrap {
   display: flex;
   justify-content: flex-end;
@@ -296,7 +311,7 @@ input {
 }
 
 .tableName {
-  font-size: 35px;
+  font-size: 25px;
   height: auto;
   padding: 35px 35px;
   font-weight: bold;
@@ -318,7 +333,7 @@ input {
 }
 .mainTableWrap {
   margin-top: 25px;
-  font-size: 11px;
+  font-size: 12px;
   padding: 15px;
   display: flex;
   justify-content: center;
@@ -431,6 +446,10 @@ td {
   #typeSelect {
     width: 150px;
   }
+
+  .imageupText {
+    display: none;
+  }
 }
 
 .inputBox input,
@@ -439,7 +458,7 @@ td {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 2px;
   font-size: 14px;
 }
 
@@ -459,4 +478,20 @@ td {
 #typeSelect {
   width: 200px;
   margin: 10px 0px 10px 10px;
+}
+
+/* 수정 삭제 버튼 */
+.bottomBtn {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 0px 5px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  cursor: pointer;
+}
+.tdButton .bottomBtn {
+  display: block;
+  margin: 0 auto;
 }

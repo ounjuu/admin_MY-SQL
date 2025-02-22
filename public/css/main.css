@@ -1,0 +1,34 @@
+/* 기본 설정 */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.allWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.shopContent {
+  flex: 1;
+}
+
+.my_footer {
+  margin-top: auto;
+}
+body {
+  max-width: 1280px;
+  margin-top: 64px;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration-line: none;
+  color: inherit;
+}

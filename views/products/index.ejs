@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>admin</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Gowun+Dodum&family=Manrope:wght@200..800&family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/public/css/admin.css" />
   </head>
   <body>
@@ -12,7 +18,7 @@
       <!-- 헤더 만들기 -->
       <div class="shopHeader"><%- include('header.ejs') %></div>
       <!-- 본문 시작 -->
-      <div class="contentWrapBox">
+      <div class="contentWrapBox nanum-gothic-regular">
         <!-- 등록 부분 -->
         <div class="addBox">
           <div class="productAddText"><p>상품 등록</p></div>
@@ -91,7 +97,7 @@
                     placeholder="상세내용을 입력해 주세요."
                     id="productContent"
                     name="productContent"
-                    class="notoSansfont"
+                    class="nanum-gothic-regular"
                     oninput="contentonInput()"
                     required
                   ></textarea>
@@ -143,7 +149,6 @@
                     </div>
                   </div>
                   <div class="imageupText"></div>
-                  <div id="fileName"></div>
                 </div>
               </div>
 
@@ -184,17 +189,19 @@
                     <td><%= data[i].name %></td>
                     <td><%= data[i].price %></td>
                     <td><%= data[i].description %></td>
-                    <td>
+                    <td class="tdButton">
                       <input
                         type="button"
                         value="수정"
+                        class="bottomBtn"
                         onclick="updatePage('<%= data[i].id %>')"
                       />
                     </td>
-                    <td>
+                    <td class="tdButton">
                       <input
                         type="button"
                         value="삭제"
+                        class="bottomBtn"
                         onclick="deleteProduct('<%= data[i].id %>')"
                       />
                     </td>
