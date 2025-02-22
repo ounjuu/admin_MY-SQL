@@ -99,15 +99,19 @@
                 </div>
               </div>
               <!-- 상품 타입 선택 -->
-              <div>상품 타입 선택</div>
-              <select id="typeSelect" name="productType">
-                <!-- <option value="" disabled selected>TYPE</option> -->
-                <option value="" disabled selected>TYPE</option>
-                <option value="thread">실</option>
-                <option value="needle">바늘/도구</option>
-                <option value="package">패키지</option>
-              </select>
-              <div class="typeText"></div>
+              <div class="formBoxdiv">
+                <div class="labelBox">상품 타입 선택</div>
+                <div class="inputBox typebox">
+                  <select id="typeSelect" name="productType">
+                    <!-- <option value="" disabled selected>TYPE</option> -->
+                    <option value="" disabled selected>TYPE</option>
+                    <option value="thread">실</option>
+                    <option value="needle">바늘/도구</option>
+                    <option value="package">패키지</option>
+                  </select>
+                </div>
+                <div class="typeText"></div>
+              </div>
               <!-- 이미지 업로드 -->
               <div class="formBoxdiv">
                 <div class="labelBox">
@@ -123,19 +127,26 @@
                   multiple
                 />
                 <div class="imgRightBox">
-                  <div id="uploadDiv" class="uploadDiv">
-                    <img
-                      src="/public/img/plus_icon.png"
-                      alt="Upload Image"
-                      id="uploadImage"
-                    />
+                  <div class="imgRightInBox">
+                    <div id="uploadDiv" class="uploadDiv">
+                      <img
+                        src="/public/img/plus_icon.png"
+                        alt="Upload Image"
+                        id="uploadImage"
+                      />
+                    </div>
+                    <div id="imgpreviewbox1">
+                      <img id="preview1" src="" />
+                    </div>
+                    <div id="imgpreviewbox2">
+                      <img id="preview2" src="" />
+                    </div>
                   </div>
-                  <div id="imgpreviewbox1"><img id="preview1" src="" /></div>
-                  <div id="imgpreviewbox2"><img id="preview2" src="" /></div>
                   <div class="imageupText"></div>
                   <div id="fileName"></div>
                 </div>
               </div>
+
               <!-- 버튼 -->
               <div class="savebtnWrap">
                 <button

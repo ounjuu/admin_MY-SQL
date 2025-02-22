@@ -8,7 +8,7 @@ const multer = require("multer");
 // multer 설정 (업로드 폴더 및 파일 저장 방식)
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/"); // uploads 폴더에 저장
+    cb(null, "public/uploads/"); // uploads 폴더에 저장
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname)); // 파일명 중복 방지

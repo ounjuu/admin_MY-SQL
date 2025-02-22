@@ -220,11 +220,12 @@ document.getElementById("typeSelect").addEventListener("change", function () {
     document.querySelector(".typeText").style.color = "red";
     document.querySelector(".typeText").innerText =
       "등록할 상품의 타입을 선택하세요.";
-    typecheck = true;
-  } else {
     typecheck = false;
+  } else {
+    typecheck = true;
     document.querySelector(".typeText").innerText = "";
   }
+  validCheck();
 });
 
 // 아이디 중복 검사 버튼 클릭 시 axios 서버 확인
@@ -287,9 +288,10 @@ function resetForm() {
   document.querySelector(".contentText").innerText = "";
   document.querySelector(".idText").innerText = "";
   document.querySelector(".imageupText").innerText = "";
-  document.getElementById("preview").src = "";
+  document.querySelector("#preview").src = "";
   document.querySelector("#preview").style.display = "none";
-  document.getElementById("imgpreviewbox").style.border = "none";
+  document.getElementById("imgpreviewbox1").style.border = "none";
+  document.getElementById("imgpreviewbox2").style.border = "none";
   document.getElementById("fileName").innerText = "";
   document.querySelector(".typeText").innerText = "";
 

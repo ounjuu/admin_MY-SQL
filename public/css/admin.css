@@ -31,7 +31,6 @@ input {
   font-style: normal;
 }
 
-/* Central Content Alignment */
 .contentWrapBox {
   display: flex;
   justify-content: center;
@@ -48,16 +47,26 @@ input {
   margin: 20px;
 }
 
-/* Product Add Section */
 .productAddText {
-  font-size: 13px;
+  font-size: 35px;
   height: auto;
-  padding: 0px 15px;
+  padding: 10px 35px;
   font-weight: bold;
-  background-color: #0b43f7;
-  color: white;
-  display: flex;
-  align-items: center;
+  color: black;
+  position: relative;
+  text-align: center;
+}
+
+.productAddText::after {
+  content: "";
+  display: block;
+  width: 95%;
+  height: 1px;
+  background-color: gray;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .labelBox {
@@ -111,14 +120,23 @@ input {
 }
 
 /* Image Upload */
-.uploadDiv,
-#imgpreviewbox {
+.uploadDiv {
   width: 100px;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: #ccc solid 1px;
+  cursor: pointer;
+}
+
+#imgpreviewbox1,
+#imgpreviewbox2 {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -189,16 +207,28 @@ input {
   width: 80%;
   border-bottom: 1px solid #ccc;
 }
-
-/* Image Upload Box */
 .imgRightBox {
   display: flex;
   width: 80%;
   border-bottom: 1px solid #ccc;
 }
+.imgRightInBox {
+  display: flex;
+}
+#imgpreviewbox1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+#imgpreviewbox2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .uploadDiv,
-#imgpreviewbox {
+#imgpreviewbox1,
+#imgpreviewbox2 {
   margin: 10px 0px 10px 10px;
 }
 
@@ -211,7 +241,8 @@ input {
 
 #fileName {
   height: 20px;
-  margin: 90px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
+  background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -220,13 +251,14 @@ input {
 }
 
 .imageupText {
+  background-color: blue;
   display: flex;
   text-align: center;
   align-items: center;
   color: red;
   font-size: 10px;
   height: 20px;
-  margin: 90px 0px 10px 0px;
+  margin: 10px 0px 10px 0px;
 }
 
 /* Save Button */
@@ -264,22 +296,33 @@ input {
 }
 
 .tableName {
-  font-size: 13px;
-  padding: 15px;
+  font-size: 35px;
+  height: auto;
+  padding: 35px 35px;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  background-color: #0b43f7;
-  color: white;
+  color: black;
+  position: relative;
+  text-align: center;
 }
 
+.tableName::after {
+  content: "";
+  display: block;
+  width: 95%;
+  height: 0.5px;
+  background-color: gray;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .mainTableWrap {
+  margin-top: 25px;
   font-size: 11px;
   padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ccc;
 }
 
 table {
@@ -373,17 +416,23 @@ td {
     font-size: 10px;
     padding: 5px;
   }
-  .inputBox {
-    width: 70%;
-  }
+
   .uploadDiv,
-  #imgpreviewbox {
+  #imgpreviewbox1,
+  #imgpreviewbox2 {
     width: 80px;
     height: 80px;
   }
+
+  #productName {
+    width: 250px;
+  }
+
+  #typeSelect {
+    width: 150px;
+  }
 }
 
-/* Basic Input & Textarea Styling */
 .inputBox input,
 .textareaBox textarea,
 .inputBox select {
@@ -405,4 +454,9 @@ td {
 .textareaBox textarea:focus {
   outline: none;
   border-color: #007bff;
+}
+
+#typeSelect {
+  width: 200px;
+  margin: 10px 0px 10px 10px;
 }
