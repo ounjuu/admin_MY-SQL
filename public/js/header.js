@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const menu = document.querySelector(".headerinLeft");
 
   menuButton.addEventListener("click", () => {
-    console.log("???");
     menu.classList.toggle("headerinLeftshow"); // 메뉴 보이기/숨기기 토글
   });
 });

@@ -40,7 +40,7 @@ input {
   font-weight: 800;
   font-style: normal;
 }
-
+/* 본문 박스 */
 .contentWrapBox {
   display: flex;
   justify-content: center;
@@ -129,7 +129,6 @@ input {
   display: flex;
 }
 
-/* Image Upload */
 .uploadDiv {
   width: 100px;
   height: 100px;
@@ -179,7 +178,6 @@ input {
   margin-left: 10px;
 }
 
-/* Textarea */
 #productContent {
   width: 90%;
   height: 150px;
@@ -223,14 +221,11 @@ input {
   border-bottom: 1px solid #ccc;
   position: relative;
 }
-.imgRightBox {
-  position: relative; /* 부모 div에 상대적인 위치 지정 */
-}
 
 .imageupText {
-  position: absolute; /* 절대 위치 지정 */
-  bottom: 0; /* 아래쪽으로 배치 */
-  right: 20px; /* 오른쪽으로 배치 */
+  position: absolute;
+  bottom: 0;
+  right: 20px;
   display: flex;
   text-align: center;
   align-items: center;
@@ -260,12 +255,12 @@ input {
   margin: 10px 0px 10px 10px;
 }
 
-.fileNameText {
+/* .fileNameText {
   font-size: 11px;
   color: #333;
   text-align: center;
   width: 100px;
-}
+} */
 /* 
 #fileName {
   height: 20px;
@@ -306,7 +301,6 @@ input {
   cursor: not-allowed;
 }
 
-/* Table Styles */
 .alltableWrap {
   margin: 25px 20px 10px 20px;
 }
@@ -402,7 +396,6 @@ td {
   cursor: pointer;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .wrapper {
     width: 100%;
@@ -484,6 +477,11 @@ td {
 
   #typeSelect {
     width: 150px;
+  }
+
+  #productContent {
+    width: 80%;
+    font-size: 11px;
   }
 }
 

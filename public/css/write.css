@@ -1,4 +1,371 @@
-img {
+/* 기본 설정 */
+body {
+  position: relative;
+  max-width: 1280px;
+  margin: 0;
+  margin-top: 64px;
+  padding: 0;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration-line: none;
+  color: inherit;
+}
+/* 본문 */
+.wrapper {
+  max-width: 1280px;
+}
+.shopContent {
+  display: flex;
+  justify-content: center;
+}
+.updateFormBox {
+  margin: 25px 20px 10px 20px;
+  border: 1px solid #ccc;
+}
+input {
+  border: solid #ccc 1px;
+}
+
+/* 미리보기 사진 크기 */
+#preview1,
+#preview2 {
   width: 100px;
   height: 100px;
+}
+
+.nanum-gothic-regular {
+  font-family: "Nanum Gothic", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 본문 폼 전체 박스 */
+.fixBox {
+  width: 80%;
+  border: 1px solid #ccc;
+  margin: 20px;
+  margin-bottom: 150px;
+}
+
+.productAddText {
+  font-size: 25px;
+  height: auto;
+  padding: 10px 35px;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  text-align: center;
+}
+
+.productAddText::after {
+  content: "";
+  display: block;
+  width: 95%;
+  height: 1px;
+  background-color: gray;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.labelBox {
+  width: 20%;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  color: rgb(32, 32, 32);
+}
+
+.inputBox {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+#productName,
+#price {
+  outline: none;
+  height: 25px;
+  width: 200px;
+  margin: 10px 0px 10px 10px;
+  font-size: 11px;
+  padding: 0px 5px 0px 5px;
+}
+
+#productName {
+  width: 350px;
+}
+
+#productName:focus,
+#price:focus {
+  border-color: #626262;
+}
+
+.formBoxdiv {
+  display: flex;
+}
+
+/* 이미지 박스 */
+
+.uploadDiv {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #ccc solid 1px;
+  cursor: pointer;
+}
+
+#imgpreviewbox1,
+#imgpreviewbox2 {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#uploadImage {
+  width: 25px;
+  height: 25px;
+}
+
+#preview1,
+#preview2 {
+  width: 100px;
+  height: 100px;
+}
+
+#productContent {
+  width: 90%;
+  height: 150px;
+  padding: 10px;
+  resize: none;
+  border: 1px solid #ccc;
+  outline: none;
+  margin: 10px 0px 10px 10px;
+  font-size: 11px;
+}
+
+.nameText {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: red;
+  padding-left: 10px;
+}
+
+.contentText,
+.priceText {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: red;
+}
+
+#productContent:focus {
+  border-color: #626262;
+}
+
+.inputBox,
+.textareaBox {
+  width: 80%;
+  border-bottom: 1px solid #ccc;
+}
+.imgRightBox {
+  display: flex;
+  width: 80%;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+.imageupText {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: red;
+  font-size: 10px;
+  height: 20px;
+  margin: 10px 0px 10px 0px;
+}
+
+.imgRightInBox {
+  display: flex;
+}
+#imgpreviewbox1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#imgpreviewbox2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.uploadDiv,
+#imgpreviewbox1,
+#imgpreviewbox2 {
+  margin: 10px 0px 10px 10px;
+}
+
+.writebtnWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0px 10px 0px;
+}
+
+.writebtnWrap button {
+  background-color: #0b43f7;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin-right: 10px;
+}
+
+.writebtnWrap button:hover {
+  background-color: #506ecf;
+}
+
+.writebtnWrap button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.inputBox input,
+.textareaBox textarea,
+.inputBox select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.inputBox select {
+  appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.inputBox select:focus,
+.inputBox input:focus,
+.textareaBox textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+#typeSelect {
+  width: 200px;
+  margin: 10px 0px 10px 10px;
+}
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+  }
+  .contentWrapBox {
+    flex-direction: column;
+    align-items: center;
+  }
+  .addBox {
+    width: 100%;
+    margin: 10px 0;
+    margin-bottom: 120px;
+  }
+  .inputBox input,
+  .textareaBox textarea,
+  .inputBox select {
+    width: 100%;
+  }
+  .savebtnWrap {
+    justify-content: center;
+  }
+  table {
+    width: 100%;
+    font-size: 10px;
+  }
+  .labelBox {
+    width: 30%;
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .uploadDiv,
+  #imgpreviewbox1,
+  #imgpreviewbox2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  #productName {
+    width: 250px;
+  }
+
+  #typeSelect {
+    width: 150px;
+  }
+
+  .imageupText {
+    display: none;
+  }
+}
+
+/* 반응형 480 */
+@media (max-width: 768px) {
+  .labelBox {
+    width: 30%;
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  #typeSelect {
+    font-size: 8px;
+  }
+
+  .uploadDiv,
+  #imgpreviewbox1,
+  #imgpreviewbox2 {
+    width: 50px;
+    height: 50px;
+  }
+
+  #productName,
+  #price,
+  #productId {
+    width: 150px;
+  }
+  .idCheckBtn {
+    font-size: 8px;
+  }
+
+  #typeSelect {
+    width: 150px;
+  }
+
+  #productContent {
+    width: 80%;
+    font-size: 11px;
+  }
 }
