@@ -1,4 +1,4 @@
-const productImages = document.querySelectorAll(".product-img");
+const productImages = document.querySelectorAll(".productHoverImg");
 
 productImages.forEach((img) => {
   const originalSrc = img.src;

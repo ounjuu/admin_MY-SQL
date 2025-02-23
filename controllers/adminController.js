@@ -8,6 +8,9 @@ const getallProduct = async (req, res) => {
 // 메인으로도 전달
 const allProduct = async (req, res) => {
   const data = await adminModel.allproduct();
+  data.forEach((product) => {
+    product.price = parseInt(product.price).toLocaleString() + "원"; // Format price and add "원"
+  });
   res.render("products/main", { data });
 };
 

@@ -158,27 +158,35 @@
       <div class="productAll_Wrap">
         <% for (let i = 0; i < data.length; i++){ %>
         <div class="productInfoBox">
-          <a href="/products/detail/<%= data[i].id %>">
-            <div id="tr_<%= data[i].id %>" class="productInfo">
-              <div class="productImgWrap">
-                <img
-                  src="/public<%= data[i].image_url_1 %>"
-                  alt="Product Image"
-                  class="productHoverImg"
-                  data-hover-src="/public<%= data[i].image_url_2 %>"
-                />
+          <div class="productInfoBox1">
+            <a href="/products/detail/<%= data[i].id %>">
+              <div id="tr_<%= data[i].id %>" class="productInfo">
+                <div class="productImgWrap">
+                  <img
+                    src="/public<%= data[i].image_url_1 %>"
+                    alt="Product Image"
+                    class="productHoverImg"
+                    data-hover-src="/public<%= data[i].image_url_2 %>"
+                  />
+                </div>
               </div>
-              <div class="productTextWrap">
-                <div><%= data[i].name %></div>
-                <div><%= data[i].price %></div>
-                <div><%= data[i].description %></div>
+            </a>
+          </div>
+
+          <div class="productInfoBox2">
+            <a href="/products/detail/<%= data[i].id %>">
+              <div id="tr_<%= data[i].id %>" class="productInfo">
+                <div class="productTextWrap">
+                  <div><%= data[i].name %></div>
+                  <div><%= data[i].price %></div>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
         <% } %>
       </div>
-
+      <div class="paddingBottom"></div>
       <!-- 푸터 만들기 -->
     </div>
     <div class="shopFooter"><%- include('footer.ejs') %></div>

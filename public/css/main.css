@@ -135,6 +135,10 @@ a {
   border-right: solid 1px black;
 }
 
+.categoryImg:hover {
+  cursor: pointer;
+}
+
 .categorySize {
   font-size: 15px;
 }
@@ -149,58 +153,87 @@ a {
   margin: 0 auto;
 }
 
-/* 상품 CSS */
-.productAll_Wrap {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  width: 100%;
-}
-
-.productInfoBox {
-  width: 100%;
-  aspect-ratio: 3 / 4; /* 가로 4, 세로 3 비율 유지 */
-  box-sizing: border-box;
-  overflow: hidden;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-}
-
-/* .productImgWrap {
-  flex: 7; 
-  border-bottom: 1px solid black;
-}
-
-.productTextWrap {
-  flex: 3; 
-} */
-.productImgWrap img {
-  width: 100%;
-  display: block;
-  overflow: hidden;
-}
-
-.productTextWrap {
-  margin-top: 10px;
-}
-@media (max-width: 768px) {
-  .productAll_Wrap {
-    grid-template-columns: repeat(2, 1fr); /* 태블릿에서는 2개씩 */
-  }
-}
-
-@media (max-width: 480px) {
-  .productAll_Wrap {
-    grid-template-columns: 1fr; /* 모바일에서는 1개씩 */
-  }
-}
-
 /* 상품 shop text */
 .kikipopoShopText {
-  display: block; /* 블록 요소로 만들어 한 줄 차지 */
-  width: 100%; /* 가로 너비 100% */
+  display: block;
+  width: 100%;
   font-size: 18px;
   font-weight: bold;
   padding: 10px 15px;
-  border-top: 2px solid black; /* 위쪽 테두리 */
-  border-bottom: 2px solid black; /* 아래쪽 테두리 */
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+/* 상품 CSS */ /* 상품 CSS */
+.productAll_Wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.productInfoBox {
+  width: 25%;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black; /* Border for all items */
+}
+
+.productInfoBox:nth-child(4n) {
+  border-right: none; /* Remove the right border for the last item in each row */
+}
+
+.productInfoBox1,
+.productInfoBox2 {
+  width: 100%;
+}
+
+.productInfoBox2 {
+  border-top: 1px solid black;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productImgWrap {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.productImgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productTextWrap {
+  text-align: left;
+  margin: 10px 0px;
+  width: 100%;
+  padding-left: 10px;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productTextWrap div {
+  margin-bottom: 5px;
+}
+
+.productInfoBox2:hover {
+  background-color: #0b43f7;
+}
+
+/* 밑에 여백 */
+
+.paddingBottom {
+  width: 100%;
+  padding-bottom: 100px;
 }
