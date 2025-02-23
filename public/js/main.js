@@ -20,9 +20,7 @@ document.querySelectorAll(".cateimgWrap").forEach((item) => {
       fetch(`/products/main/all/${category}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log("🟢 응답 받음:", data);
           updateProductList(data.data); // 상품 목록 업데이트
-          console.log(data.data[0]);
         })
         .catch((error) => console.error("Error:", error));
     } else {
@@ -83,3 +81,17 @@ function updateProductList(products) {
     });
   });
 }
+
+// 스크롤 글씨 변화
+// 스크롤 이벤트 감지
+window.addEventListener("scroll", function () {
+  const element = document.querySelector(".kikipopoanimation");
+
+  // 스크롤이 일정 값 이상 내려갔을 때 글씨가 아래로 사라짐
+  if (window.scrollY > 100) {
+    // 예를 들어 100px 이상 스크롤 시
+    element.classList.add("scrollDown");
+  } else {
+    element.classList.remove("scrollDown");
+  }
+});
