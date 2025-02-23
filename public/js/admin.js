@@ -60,7 +60,7 @@ document.getElementById("productImage").addEventListener("change", function () {
     .then((res) => {
       console.log("업로드된 이미지 URL:", res.data);
       if (res.data.productImage) {
-        const imageUrls = res.data.productImage; // 서버에서 받은 이미지 URL 배열
+        const imageUrls = res.data.productImage;
 
         if (imageUrls[0])
           document.getElementById("preview1").src = "/public" + imageUrls[0];

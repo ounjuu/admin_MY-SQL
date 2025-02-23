@@ -75,13 +75,27 @@ const deleteRow = async (id) => {
 // 해당 아이디를 가진 데이터 수정
 const updateRow = async (data, files) => {
   try {
-    const productImages = [];
+    let productImages = [];
     if (files && files.length > 0) {
       files.forEach((file) => {
         productImages.push("/uploads/" + file.filename); // 파일 경로 생성
       });
+    } else if (data.keepExistingImages) {
+      const [existingProduct] = await pool.query(
+        "SELECT image_url_1, image_url_2 FROM products WHERE id = ?",
+        [data.id]
+      );
+      if (existingProduct.length === 0) {
+        throw new Error("해당 ID의 상품을 찾을 수 없습니다.");
+      }
+
+      // 기존 이미지가 존재할 경우 추가
+      productImages = [
+        existingProduct[0].image_url_1,
+        existingProduct[0].image_url_2,
+      ].filter(Boolean); // null이나 빈 값을 제거
     }
-    const query = `UPDATE products SET name = ?, price = ?, description = ?, category = ?, image_url_1 = ?, image_url_2 = ? where id = ?`;
+    let query = `UPDATE products SET name = ?, price = ?, description = ?, category = ?, image_url_1 = ?, image_url_2 = ? where id = ?`;
 
     await pool.query(query, [
       data.name,

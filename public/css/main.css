@@ -432,14 +432,20 @@ a {
 /* 하단 글자 */
 .paddingBottom {
   width: 100%;
-  height: 100%; /* 높이를 지정해서 중앙 정렬을 위해 필요 */
-  display: flex; /* Flexbox 사용 */
-  justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5px;
+  background-color: #f7f7f7;
 }
 
 .kikiText {
   font-weight: bold; /* 글자 진하게 */
   font-size: 12px; /* 폰트 크기 설정 */
+}
+
+/* cursor */
+.category-item {
+  cursor: pointer;
 }

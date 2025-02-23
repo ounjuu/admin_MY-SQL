@@ -113,7 +113,6 @@
                   name="productImage"
                   id="productImage"
                   style="display: none"
-                  required
                   multiple
                 />
                 <div class="imgRightBox">
@@ -126,16 +125,10 @@
                       />
                     </div>
                     <div id="imgpreviewbox1">
-                      <img
-                        id="preview1"
-                        src="/public<%= data[0].image_url_1 %>"
-                      />
+                      <img id="preview1" src="<%= data[0].image_url_1 %>" />
                     </div>
                     <div id="imgpreviewbox2">
-                      <img
-                        id="preview2"
-                        src="/public<%= data[0].image_url_2 %>"
-                      />
+                      <img id="preview2" src="<%= data[0].image_url_2 %>" />
                     </div>
                   </div>
                   <div class="imageupText"></div>

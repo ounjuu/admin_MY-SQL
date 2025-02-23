@@ -26,8 +26,8 @@ app.use(express.json());
 // 라우터
 app.use("/products", adminRouters);
 // 정적 파일 제공
-app.use("/public", express.static(path.join(__dirname, "public"))); // public 폴더를 /public으로 제공
-app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // uploads 폴더를 /uploads로 제공
+app.use("/public", express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
 // EJS 설정
 app.set("view engine", "ejs"); // ejs 파일 html로 변경

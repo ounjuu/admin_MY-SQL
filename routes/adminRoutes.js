@@ -8,17 +8,17 @@ const router = express.Router();
 // Multer 설정 (업로드 폴더 지정)
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/uploads/"); // 업로드된 파일이 저장될 폴더
+    cb(null, "public/uploads/");
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); // 고유한 파일명
+    cb(null, Date.now() + path.extname(file.originalname));
   },
 });
 
 const upload = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
-    const fileTypes = /jpeg|jpg|png|gif/; // 허용되는 이미지 파일 타입
+    const fileTypes = /jpeg|jpg|png|gif|webp/; // 허용되는 이미지 파일 타입
     const extname = fileTypes.test(
       path.extname(file.originalname).toLowerCase()
     );
@@ -42,21 +42,18 @@ router.get("/main/all/:category", adminController.getAllProductAPI);
 
 router.post(
   "/post/product",
-  upload.array("productImage", 2), // 최대 2개의 파일을 받을 수 있음
-  adminController.createpost // 파일과 함께 데이터를 처리하는 컨트롤러
+  upload.array("productImage", 2),
+  adminController.createpost
 );
 
-// id check
 router.post("/idcheck", adminController.checkProductId);
 
-//update
 router.put(
   "/update/:id",
   upload.array("productImage", 2),
   adminController.dataUpdate
 );
 
-// delelte
 router.delete("/delete/:id", adminController.deleteData);
 
 module.exports = router;

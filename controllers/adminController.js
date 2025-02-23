@@ -3,6 +3,9 @@ const adminModel = require("../models/adminModel");
 // 전체 상품 가져오는 컨트롤러
 const getallProduct = async (req, res) => {
   const data = await adminModel.allproduct();
+  data.forEach((product) => {
+    product.price = parseInt(product.price).toLocaleString() + " 원";
+  });
   res.render("products/index", { data });
 };
 // 메인으로도 전달
@@ -28,6 +31,9 @@ const productsByCategory = async (req, res) => {
 //하나
 const productOne = async (req, res) => {
   const data = await adminModel.getOneData(req.params.id);
+  data.forEach((product) => {
+    product.price = parseInt(product.price).toLocaleString() + " 원";
+  });
   res.render("products/detail", { data });
 };
 
@@ -52,7 +58,7 @@ const moveWrite = async (req, res) => {
 // 해당 아이템 수정
 const dataUpdate = async (req, res) => {
   const fixData = await adminModel.updateRow(req.body, req.files);
-  res.send("200");
+  res.status(200).send("상품 등록 성공");
 };
 
 // 상품 ID 중복 검사 컨트롤러
@@ -110,7 +116,7 @@ const getAllProductAPI = async (req, res) => {
   const { category } = req.params;
   try {
     const data = await adminModel.getProductByAll(category);
-    console.log(data, "?data");
+
     res.json({ data });
   } catch (error) {
     console.error(error);
