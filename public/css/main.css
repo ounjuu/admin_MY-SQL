@@ -34,6 +34,24 @@ a {
   margin-top: auto;
 }
 
+/* 전체 스크롤바 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0b43f7;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0a37d2;
+}
+
 /* 본문 */
 .kikicategory {
   display: flex;
@@ -424,21 +442,4 @@ a {
 .kikiText {
   font-weight: bold; /* 글자 진하게 */
   font-size: 12px; /* 폰트 크기 설정 */
-}
-/* 전체 스크롤바 */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #0b43f7;
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: #0a37d2;
 }
