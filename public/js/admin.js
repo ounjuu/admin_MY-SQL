@@ -29,7 +29,7 @@ document.getElementById("productImage").addEventListener("change", function () {
     return;
   }
 
-  // // 파일명 표시 (여러 개일 경우 , 로 구분)
+  // 파일명 표시 (여러 개일 경우 , 로 구분)
   // const fileNames = Array.from(files)
   //   .map((file) => file.name)
   //   .join(", ");
@@ -88,11 +88,6 @@ const createData = (event) => {
   const images = form["productImage"].files;
   if (images.length > 0) data.append("productImage", images[0]); // 첫 번째 이미지
   if (images.length > 1) data.append("productImage", images[1]); // 두 번째 이미지
-
-  //   if (!product_id || !name || !comment) {
-  //     alert("모든 값을 입력해주세요!");
-  //     return;
-  //   }
 
   axios({
     method: "post",

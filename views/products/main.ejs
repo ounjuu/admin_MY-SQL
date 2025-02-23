@@ -17,9 +17,9 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-
+    <link rel="icon" href="/public/img/cat_top.png" type="image/png" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Main</title>
+    <title>KIKIPOPO</title>
   </head>
   <body>
     <div class="allWrapper">
@@ -129,7 +129,7 @@
       <div class="categoryMenuWrap">
         <div class="allCategoryimg categoryImg">
           <div class="categorySize"><b>ALL</b></div>
-          <div class="cateimgWrap">
+          <div class="cateimgWrap" data-category="all">
             <img src="/public/img/all_category.jpg" alt="allCategoryimg" />
           </div>
         </div>
@@ -142,19 +142,20 @@
 
         <div class="outdoorCategoryimg categoryImg">
           <div class="categorySize"><b>OUTDOOR</b></div>
-          <div class="cateimgWrap">
+          <div class="cateimgWrap" data-category="outdoor">
             <img src="/public/img/outdoor.gif" alt="outdoorCategoryimg" />
           </div>
         </div>
         <div class="fashionCategoryimg categoryImg">
           <div class="categorySize"><b>FASHION</b></div>
-          <div class="cateimgWrap">
+          <div class="cateimgWrap" data-category="fashion">
             <img src="/public/img/fashion.gif" alt="fashionCategoryimg" />
           </div>
         </div>
       </div>
       <!-- 상품 -->
       <div class="kikipopoShopText">KIKIPOPO > SHOP</div>
+
       <div class="productAll_Wrap">
         <% for (let i = 0; i < data.length; i++){ %>
         <div class="productInfoBox">
@@ -177,8 +178,8 @@
             <a href="/products/detail/<%= data[i].id %>">
               <div id="tr_<%= data[i].id %>" class="productInfo">
                 <div class="productTextWrap">
-                  <div><%= data[i].name %></div>
-                  <div><%= data[i].price %></div>
+                  <div class="productNameSize"><%= data[i].name %></div>
+                  <div class="productPriceSize"><%= data[i].price %></div>
                 </div>
               </div>
             </a>
@@ -186,10 +187,14 @@
         </div>
         <% } %>
       </div>
+      <div class="gifImgDiv">
+        <img src="/public/img/imgs.gif" alt="productimgs" class="imgsGif" />
+      </div>
       <div class="paddingBottom"></div>
       <!-- 푸터 만들기 -->
     </div>
     <div class="shopFooter"><%- include('footer.ejs') %></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/public/js/main.js"></script>
   </body>

@@ -9,11 +9,22 @@ const getallProduct = async (req, res) => {
 const allProduct = async (req, res) => {
   const data = await adminModel.allproduct();
   data.forEach((product) => {
-    product.price = parseInt(product.price).toLocaleString() + "원"; // Format price and add "원"
+    product.price = parseInt(product.price).toLocaleString() + "원";
   });
   res.render("products/main", { data });
 };
 
+// 카테고리별 상품
+const productsByCategory = async (req, res) => {
+  const { category } = req.params;
+  try {
+    const data = await adminModel.getProductByCategory(category);
+    res.json({ data });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+};
 //하나
 const productOne = async (req, res) => {
   const data = await adminModel.getOneData(req.params.id);
@@ -47,13 +58,9 @@ const dataUpdate = async (req, res) => {
 // 상품 ID 중복 검사 컨트롤러
 const checkProductId = async (req, res) => {
   const { id } = req.body;
-
-  // 상품 ID가 제공되지 않았으면 400 오류 반환
   if (!id) {
     return res.status(400).json({ error: "상품 ID가 제공되지 않았습니다." });
   }
-  //  받은 ID 확인
-  // 모델에서 중복 확인
   const data = await adminModel.checkProductId(id);
   res.send(data);
 };
@@ -90,6 +97,26 @@ const checkProductId = async (req, res) => {
 //   }
 // };
 
+// const getAllProductAPI = async (req, res) => {
+//   try {
+//     const data = await adminModel.getProductByAll(); // DB에서 데이터 가져오기
+//     res.render("products/main/all", { data }); // EJS 템플릿에 data 전달
+//   } catch (error) {
+//     console.error("Error fetching products:", error);
+//     res.status(500).json({ error: "서버 오류 발생" });
+//   }
+// };
+const getAllProductAPI = async (req, res) => {
+  const { category } = req.params;
+  try {
+    const data = await adminModel.getProductByAll(category);
+    console.log(data, "?data");
+    res.json({ data });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+};
 module.exports = {
   getallProduct,
   createpost,
@@ -99,4 +126,6 @@ module.exports = {
   productOne,
   allProduct,
   checkProductId,
+  productsByCategory,
+  getAllProductAPI,
 };

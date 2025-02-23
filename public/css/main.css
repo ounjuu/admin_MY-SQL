@@ -168,12 +168,14 @@ a {
 .productAll_Wrap {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .productInfoBox {
   width: 25%;
   border-bottom: 1px solid black;
-  border-right: 1px solid black; /* Border for all items */
+  border-right: 1px solid black;
+  box-sizing: border-box;
 }
 
 .productInfoBox:nth-child(4n) {
@@ -188,7 +190,6 @@ a {
 .productInfoBox2 {
   border-top: 1px solid black;
   font-weight: bold;
-  font-size: 15px;
 }
 
 .productInfo {
@@ -236,4 +237,24 @@ a {
 .paddingBottom {
   width: 100%;
   padding-bottom: 100px;
+}
+
+.gifImgDiv {
+  width: 100%;
+}
+
+.imgsGif {
+  width: 100%;
+  height: 100vh; /* 화면 높이에 맞게 설정 */
+  object-fit: cover; /* 이미지 비율을 유지하면서 자르기 */
+}
+
+.productNameSize {
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.productPriceSize {
+  font-size: 15px;
+  padding-left: 10px;
 }

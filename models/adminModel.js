@@ -21,6 +21,20 @@ const getOneData = async (userId) => {
   return rows;
 };
 
+// 카테고리별 상품 가져오기
+const getProductByCategory = async (category) => {
+  const query = `SELECT * FROM products WHERE category = '${category}'`;
+  const [rows] = await pool.query(query);
+  return rows;
+};
+
+// all 상품 가져오기
+const getProductByAll = async (category) => {
+  const query = `SELECT * FROM products WHERE category != '${category}'`;
+  const [rows] = await pool.query(query);
+  return rows;
+};
+
 //등록하기
 const postData = async (data, files) => {
   try {
@@ -135,4 +149,6 @@ module.exports = {
   updateRow,
   getOneData,
   checkProductId,
+  getProductByCategory,
+  getProductByAll,
 };

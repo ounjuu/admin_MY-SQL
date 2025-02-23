@@ -37,6 +37,9 @@ router.get("/productWrite/:id", adminController.moveWrite);
 router.get("/detail/:id", adminController.productOne);
 // router.post("/post/product", adminController.createpost);
 
+router.get("/main/:category", adminController.productsByCategory);
+router.get("/main/all/:category", adminController.getAllProductAPI);
+
 router.post(
   "/post/product",
   upload.array("productImage", 2), // 최대 2개의 파일을 받을 수 있음
