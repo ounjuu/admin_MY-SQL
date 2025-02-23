@@ -7,6 +7,8 @@ body {
 }
 body {
   max-width: 1280px;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 ul,
 li {
@@ -63,11 +65,30 @@ a {
   .kikicategory .category-item {
     flex-basis: 33.33%;
   }
+  .category-item {
+    border-bottom: solid 1px black;
+    border-top: none;
+    border-right: solid 1px black;
+  }
+  .kikicategory .category-item:nth-child(3n) {
+    border-right: 0;
+  }
 }
 
 @media (max-width: 480px) {
   .kikicategory .category-item {
     flex-basis: 50%;
+  }
+  .category-item {
+    border-bottom: solid 1px black;
+    border-top: none;
+    border-right: solid 1px black;
+  }
+  .kikicategory .category-item:nth-child(3n) {
+    border-right: solid 1px black;
+  }
+  .kikicategory .category-item:nth-child(2n) {
+    border-right: 0;
   }
 }
 
@@ -86,7 +107,7 @@ a {
   display: inline-block;
   color: white;
   animation: eventTextFlow 100s linear infinite;
-  font-size: 18px; /* 폰트 크기 설정 (필요 시 조정) */
+  font-size: 18px;
   line-height: 50px;
 }
 @keyframes eventTextFlow {
@@ -96,4 +117,90 @@ a {
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* 메인 중간 카테고리 4개 */
+.categoryMenuWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.categoryImg {
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 25px 0;
+  border-right: solid 1px black;
+}
+
+.categorySize {
+  font-size: 15px;
+}
+
+.categoryImg:last-child {
+  border-right: none;
+}
+
+.categoryImg img {
+  width: 65%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 상품 CSS */
+.productAll_Wrap {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  width: 100%;
+}
+
+.productInfoBox {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* 가로 4, 세로 3 비율 유지 */
+  box-sizing: border-box;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+/* .productImgWrap {
+  flex: 7; 
+  border-bottom: 1px solid black;
+}
+
+.productTextWrap {
+  flex: 3; 
+} */
+.productImgWrap img {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.productTextWrap {
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .productAll_Wrap {
+    grid-template-columns: repeat(2, 1fr); /* 태블릿에서는 2개씩 */
+  }
+}
+
+@media (max-width: 480px) {
+  .productAll_Wrap {
+    grid-template-columns: 1fr; /* 모바일에서는 1개씩 */
+  }
+}
+
+/* 상품 shop text */
+.kikipopoShopText {
+  display: block; /* 블록 요소로 만들어 한 줄 차지 */
+  width: 100%; /* 가로 너비 100% */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-top: 2px solid black; /* 위쪽 테두리 */
+  border-bottom: 2px solid black; /* 아래쪽 테두리 */
 }
