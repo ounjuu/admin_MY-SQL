@@ -64,38 +64,14 @@
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/fb67d8f4-25da-4e8f-bf75-b2ec20eaaf00" /></div>
 <br/><br/>
 
-###  4. SHOP 장바구니 페이지 
-#### ✅ 총 금액 계산 및 장바구니 상품 삭제<br/>
-1. 장바구니의 총 금액 및 개수가 계산됩니다.<br/>
-2. 휴지통 버튼을 클릭하면 해당 상품이 삭제되며, 총 금액이 변경됩니다.<br/>
-3. 장바구니 비우기 버튼을 클릭하면 alert 창이 나타나며, 삭제 버튼을 누르면 전체 상품이 삭제됩니다.<br/>
-4. 전체 상품이 삭제되면 "장바구니가 비어있습니다."라는 이미지가 보이도록 설정됩니다.<br/>
+### 4. CSS
+
+1. 반응형
 <div align="center">
-<img width="80%" alt="image" src="https://github.com/user-attachments/assets/6e587b78-61db-4d6c-9d8b-fe75b8addc4a" /></div>
-<div align="center">
-<img width="80%" alt="image" src="https://github.com/user-attachments/assets/cf6ab2f2-4dfc-4214-aaad-4fe57cac3d25" /></div>
-<br/><br/>
+ <img width="80%" alt="image" src="https://github.com/user-attachments/assets/07327deb-313e-483e-bacd-96d4c1778002" /></div>
+
 
 ## :star: 추가 구현 완료 리스트
-
-#### ➕ 페이지네이션 추가(관리자 페이지, 메인 페이지)
-#### ➕ 엑셀 다운로드 가능(관리자 페이지 상품들)
-#### ➕ 관리자 페이지 type 옵션 수정 가능하도록 추가
-<div align="center">
-<img width="80%" alt="image" src="https://github.com/user-attachments/assets/b3c5fb05-b500-4586-bcf7-c1f0f0f7b367" /></div>
-
-
-#### ➕ 장바구니 수량 변경 가능하게 업데이트
-#### ➕ 100,000원 이상인 경우 배송비 0원으로 변경
-<div align="center">
-<img width="80%" alt="image" src="https://github.com/user-attachments/assets/185867c2-7520-4dd1-90a2-7c758811a45e" /></div>
-
-#### ➕ 찜버튼 누른 상품들 볼 수 있는 페이지 추가
-
-
-<div align="center">
-<img width="50%" alt="image" src="https://github.com/user-attachments/assets/4aed7c5e-ee9d-47bf-b8bd-c6f2990ce32c" /></div>
-
 
 <div align="center">
 <img width="45%" alt="image" src="https://github.com/user-attachments/assets/94630332-8d3a-47ba-a158-9f89961ca02f" />
