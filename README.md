@@ -69,6 +69,7 @@
 1. 반응형
 <div align="center">
  <img width="80%" alt="image" src="https://github.com/user-attachments/assets/07327deb-313e-483e-bacd-96d4c1778002" /></div>
+<div align="center"><img width="410" alt="image" src="https://github.com/user-attachments/assets/1e7b9a2f-da0c-447c-9332-d7835af7a419" /></div>
 
 
 ## :star: 추가 구현 완료 리스트
