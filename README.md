@@ -1,5 +1,5 @@
 
-# 🔷: KIKIPOPO 관리자 페이지(상품 관리) README - DB(MY SQL)
+# 🔷: KIKIPOPO 상품 페이지 & 관리자 페이지 README - DB(MY SQL)
 <div align="center">
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/b626d391-b400-4fdc-8ef5-ec8c2d7e8f72" /></div>
 
