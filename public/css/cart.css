@@ -1,0 +1,297 @@
+/* 하단 안내글 */
+.detailBottom {
+  width: 100%;
+  height: 100px;
+}
+.detailexchange {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.btexchange {
+  width: 45%;
+  padding: 20px;
+  font-size: 12px;
+  color: rgb(94, 94, 94);
+  border: gray 1px solid;
+}
+
+.btdeliver {
+  width: 45%;
+  padding: 20px;
+  font-size: 12px;
+  color: rgb(94, 94, 94);
+  border: gray 1px solid;
+  margin-left: 20px;
+}
+
+.btdeliver h3 {
+  border-bottom: rgb(173, 173, 173) 1px solid;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.btexchange h3 {
+  border-bottom: rgb(173, 173, 173) 1px solid;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.btdeliver p,
+.btexchange p {
+  padding: 10px;
+}
+
+.noticeText {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-weight: bold;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-top: 50px;
+  color: white;
+  background-color: #0b43f7;
+}
+.headerinlogo {
+  padding-top: 10px;
+}
+
+/* 본문 css */
+/* 메인 css 시작 */
+.detailWrap {
+  text-align: center;
+}
+
+.detailboxWrap {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: #989898 solid 1px;
+}
+
+.cart_menu {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  border-top: #989898 solid 1px;
+  border-bottom: #989898 solid 1px;
+}
+
+.cart_top {
+  padding-top: 50px;
+}
+
+.imgWrap {
+  width: 10%;
+  text-align: center;
+}
+
+.imgWrap img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.cart_Box {
+  min-height: 500px;
+  max-width: 1280px;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+/* 휴지통 버튼 css */
+.fa-solid {
+  font-size: 25px;
+  color: #0b43f7;
+  background-color: transparent;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.cartout {
+  cursor: pointer;
+}
+
+.cartbtn_wrap {
+  text-align: center;
+}
+
+/* 메인 상품 박스들 */
+.cart_divs {
+  /* display: flex; */
+  align-items: center;
+  justify-content: space-between; /* 요소들 간의 간격 유지 */
+  /* padding: 20px; */
+}
+
+.imgWrap,
+.buttonWrap {
+  width: 10%;
+}
+
+.productName {
+  width: 40%;
+}
+
+.productPrice {
+  width: 10%;
+}
+.productCount {
+  width: 10%;
+
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.productName,
+.productPrice,
+.productdetail {
+  flex-grow: 1;
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.quantity-input {
+  width: 50%;
+}
+
+.buttonWrap {
+  width: 10%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .cart_Box {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .fa-solid {
+    font-size: 20px;
+  }
+}
+
+.cart_wrap {
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .cartout {
+    font-size: 10px;
+    padding: 10px;
+    width: 150px;
+  }
+
+  .cart_wrap {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart_Box {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .cart_wrap {
+    font-size: 8px;
+  }
+
+  .th_name {
+    font-size: 9px;
+  }
+  .fa-solid {
+    font-size: 15px;
+  }
+}
+
+/* 총 상품 금액 */
+.countBoxWrap {
+  margin-top: 30px;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.countBox {
+  font-size: 12px;
+  border-bottom: solid 1px #989898;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+}
+
+.priceBox {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.priceBoxbottom {
+  font-size: 12px;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.priceBoxWrap {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  /* 총 상품 금액 */
+
+  .countBox {
+    font-size: 10px;
+  }
+
+  .priceBox {
+    font-size: 15px;
+  }
+
+  .priceBoxbottom {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .countBox {
+    font-size: 9px;
+  }
+
+  .priceBox {
+    font-size: 13px;
+  }
+
+  .priceBoxbottom {
+    font-size: 9px;
+  }
+}
+
+.buynow {
+  width: 180px;
+  padding: 13px;
+  background: #ffffff;
+  color: #333;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  border: solid 1px black;
+}
+
+@media (max-width: 768px) {
+  .buynow {
+    font-size: 10px;
+    padding: 10px;
+    width: 150px;
+  }
+}

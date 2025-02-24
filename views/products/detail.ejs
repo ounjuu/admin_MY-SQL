@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Gowun+Dodum&family=Manrope:wght@200..800&family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR&display=swap"
       rel="stylesheet"
@@ -37,7 +38,39 @@
                     <p class="NEW">NEW</p>
                     <p class="MD">MD</p>
                   </div>
-                  <div class="productPrice"><%= data[0].price %></div>
+                  <div class="productPrice" id="productPrice">
+                    <%= data[0].price %> 원
+                  </div>
+                  <!-- 장바구니 수량 및 가격 업데이트 -->
+                  <div class="cartCountBox">
+                    <div class="inputBoxs">
+                      <input
+                        type="button"
+                        id="minus"
+                        value="-"
+                        class="quantityBtn"
+                      />
+                      <input
+                        type="number"
+                        id="quantity"
+                        value="1"
+                        min="1"
+                        class="quantityInput"
+                      />
+                      <input
+                        type="button"
+                        id="plus"
+                        value="+"
+                        class="quantityBtn"
+                      />
+                    </div>
+                    <div class="totalDiv">
+                      <p>
+                        TOTAL
+                        <span id="totalPrice"><%= data[0].price %></span>
+                      </p>
+                    </div>
+                  </div>
                   <div class="contentboxLine">
                     <div class="productdetail">
                       * <%= data[0].description %>
@@ -60,11 +93,14 @@
                       따라 가격 및 할인 혜택이 변동될 수 있습니다.
                     </p>
                     <div class="buttonWrap">
-                      <button class="cartin" onclick="cartalert()">
+                      <button
+                        class="cartin"
+                        onclick="cartIn('<%= data[0].id %>')"
+                      >
                         장바구니 담기
                       </button>
                       <div class="likeWrap">
-                        <i class="${heartClass}" id="like${product.id}"></i>
+                        <i class="heartclass" id="like"></i>
                       </div>
                     </div>
                   </div>

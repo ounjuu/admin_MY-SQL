@@ -32,7 +32,7 @@ const updateForm = (id) => {
   data.append("id", id);
   data.append("name", form["productName"].value);
   data.append("price", form["price"].value);
-  data.append("description", form["productContent"].value);
+  data.append("description", editor.getMarkdown());
   data.append("category", form["productType"].value);
 
   const fileInput = form["productImage"];
@@ -81,3 +81,19 @@ document
     event.preventDefault();
     document.getElementById("productImage").click();
   });
+
+// Initialize Toast UI Editor
+const existingContent = document
+  .getElementById("product-description")
+  .innerText.trim("");
+
+// Toast UI Editor 초기화
+const editor = new toastui.Editor({
+  el: document.querySelector("#editor"),
+  height: "400px",
+  initialEditType: "markdown",
+  previewStyle: "vertical",
+});
+
+// 기존 내용을 에디터에 설정
+editor.setMarkdown(existingContent);

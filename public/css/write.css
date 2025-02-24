@@ -377,3 +377,6 @@ input {
 .headerinlogo {
   padding-top: 10px;
 }
+.toastui-editor-contents {
+  padding: 0; /* 내용 영역의 여백을 없앰 */
+}

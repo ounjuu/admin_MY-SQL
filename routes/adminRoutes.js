@@ -39,12 +39,24 @@ router.get("/detail/:id", adminController.productOne);
 
 router.get("/main/:category", adminController.productsByCategory);
 router.get("/main/all/:category", adminController.getAllProductAPI);
-
+router.get("/cart/all", adminController.getCartAllProduct);
+router.get("/cart", adminController.getcartProduct);
 router.post(
   "/post/product",
   upload.array("productImage", 2),
   adminController.createpost
 );
+
+router.post("/add-to-cart", adminController.createCartData);
+
+// toast editor 이미지
+// router.post("/upload", upload.single("image"), (req, res) => {
+//   if (!req.file) {
+//     return res.status(400).json({ error: "파일 업로드 실패" });
+//   }
+//   const imageUrl = `/uploads/${req.file.filename}`;
+//   res.json({ imageUrl });
+// });
 
 router.post("/idcheck", adminController.checkProductId);
 

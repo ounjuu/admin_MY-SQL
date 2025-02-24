@@ -1,16 +1,22 @@
 //테이블 헤드 생성
-const theadWrap = document.querySelector(".theadWrap");
-theadWrap.innerHTML = `<thead>
-        <tr>
-            <th>이미지</th>
-            <th>상품코드</th>
-            <th>상품명</th>
-            <th>판매가</th>
-            <th>상품상세</th>
-            <th>관리</th>
-            <th>삭제</th>
-        </tr>
+document.addEventListener("DOMContentLoaded", function () {
+  const theadWrap = document.querySelector(".theadWrap");
+  if (theadWrap) {
+    theadWrap.innerHTML = `<thead>
+          <tr>
+              <th>이미지</th>
+              <th>상품코드</th>
+              <th>상품명</th>
+              <th>판매가</th>
+              <th>상품상세</th>
+              <th>관리</th>
+              <th>삭제</th>
+          </tr>
       </thead>`;
+  } else {
+    console.error("theadWrap 요소를 찾을 수 없습니다.");
+  }
+});
 
 // 버튼
 document.getElementById("uploadDiv").addEventListener("click", function () {
@@ -79,7 +85,7 @@ const createData = (event) => {
   data.append("product_id", form["productId"].value);
   data.append("name", form["productName"].value);
   data.append("price", form["price"].value);
-  data.append("description", form["productContent"].value);
+  data.append("description", editor.getMarkdown());
   data.append("category", form["productType"].value);
 
   const images = form["productImage"].files;
@@ -155,20 +161,6 @@ const priceonInput = () => {
   } else {
     document.querySelector(".priceText").innerText = "";
     priceCheck = true;
-  }
-  validCheck();
-};
-
-// 상품 상세설명 실시간 검사
-const contentonInput = () => {
-  let contentdataup = document.querySelector("#productContent").value;
-  if (contentdataup.length < 1) {
-    document.querySelector(".contentText").innerText =
-      "상품의 설명을 입력하세요.";
-    contentCheck = false;
-  } else {
-    document.querySelector(".contentText").innerText = "";
-    contentCheck = true;
   }
   validCheck();
 };
@@ -298,3 +290,54 @@ function resetForm() {
   typecheck = false;
   firstidCheck = false;
 }
+
+// toast editor 이미지 가져오기
+const editor = new toastui.Editor({
+  el: document.querySelector("#editor"),
+  height: "400px",
+  initialEditType: "markdown",
+  previewStyle: "vertical",
+  // hooks: {
+  //   async addImageBlobHook(blob, callback) {
+  //     const formData = new FormData();
+  //     formData.append("image", blob); // 선택한 이미지 파일 추가
+
+  //     try {
+  //       const response = await fetch("/upload", {
+  //         method: "POST",
+  //         body: formData,
+  //       });
+
+  //       const result = await response.json();
+  //       if (result.imageUrl) {
+  //         callback(result.imageUrl, "업로드된 이미지");
+  //       } else {
+  //         alert("이미지 업로드 실패");
+  //       }
+  //     } catch (error) {
+  //       console.error("이미지 업로드 오류:", error);
+  //       alert("이미지 업로드 중 오류 발생");
+  //     }
+  //   },
+  // },
+});
+
+// 상세내용 유효성 검사 추가
+const contentValidation = () => {
+  const markdownContent = editor.getMarkdown();
+  const contentTextLength = markdownContent.length;
+
+  if (contentTextLength < 1) {
+    document.querySelector(".contentText").innerText =
+      "상품의 설명을 입력하세요.";
+    contentCheck = false;
+  } else {
+    document.querySelector(".contentText").innerText = "";
+    contentCheck = true;
+  }
+  validCheck();
+};
+
+editor.on("change", () => {
+  contentValidation();
+});

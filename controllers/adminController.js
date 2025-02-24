@@ -32,7 +32,7 @@ const productsByCategory = async (req, res) => {
 const productOne = async (req, res) => {
   const data = await adminModel.getOneData(req.params.id);
   data.forEach((product) => {
-    product.price = parseInt(product.price).toLocaleString() + " 원";
+    product.price = parseInt(product.price).toLocaleString();
   });
   res.render("products/detail", { data });
 };
@@ -41,6 +41,33 @@ const productOne = async (req, res) => {
 const createpost = (req, res) => {
   const createData = adminModel.postData(req.body, req.files);
   res.send("200");
+};
+
+// 장바구니 등록
+const createCartData = async (req, res) => {
+  try {
+    const { product_id, quantity } = req.body;
+    const result = await adminModel.postCartData(req.body);
+
+    if (result) {
+      res.status(200).json({
+        success: true,
+        message: "장바구니에 상품이 추가되었습니다!",
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        message: "장바구니 추가 실패",
+      });
+    }
+  } catch (error) {
+    console.error("장바구니 추가 오류:", error);
+    res.status(500).json({
+      success: false,
+      message: "서버 오류 발생",
+      error: error.message,
+    });
+  }
 };
 
 // 해당 아이디 삭제
@@ -126,6 +153,35 @@ const getAllProductAPI = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+
+// 장바구니
+const getCartAllProduct = async (req, res) => {
+  const data = await adminModel.cartAllProduct();
+  let totalPrice = data.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  data.forEach((product) => {
+    product.price = parseInt(product.price).toLocaleString() + " 원";
+  });
+  res.render("products/cart", { data });
+};
+
+// 장바구니 컨드롤러
+const getcartProduct = async (req, res) => {
+  const cartData = await adminModel.getCartAndProducts();
+  cartData.forEach((product) => {
+    product.price = parseInt(product.price);
+  });
+
+  if (cartData) {
+    res.render("products/cart", { cartData });
+  } else {
+    res.status(500).send("장바구니 데이터를 가져오는 데 실패했습니다.");
+  }
+};
+
 module.exports = {
   getallProduct,
   createpost,
@@ -137,4 +193,7 @@ module.exports = {
   checkProductId,
   productsByCategory,
   getAllProductAPI,
+  getCartAllProduct,
+  createCartData,
+  getcartProduct,
 };

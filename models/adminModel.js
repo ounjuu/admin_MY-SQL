@@ -175,6 +175,47 @@ const checkProductId = async (id) => {
 //   }
 // };
 
+// 장바구니 데이터 전부 가져오기
+const cartAllProduct = async () => {
+  const query = "SELECT * FROM cart";
+  const [rows] = await pool.query(query);
+  return rows;
+};
+
+// 장바구니 db에 넣기
+const postCartData = async (data) => {
+  const query = "INSERT INTO cart (product_id, quantity) VALUES (?, ?)";
+  try {
+    const [rows] = await pool.query(query, [data.product_id, data.quantity]);
+    return rows;
+  } catch (error) {
+    console.error("DB 삽입 오류:", error);
+    throw error;
+  }
+};
+
+// join으로 장바구니 데이터 가져오기
+const getCartAndProducts = async () => {
+  try {
+    const query = `
+SELECT 
+  cart.product_id, 
+  products.name, 
+  products.price,
+  products.image_url_1, 
+  SUM(cart.quantity) AS total_quantity
+FROM cart
+JOIN products ON cart.product_id = products.id
+GROUP BY cart.product_id, products.name, products.price, products.image_url_1
+    `;
+    const [rows] = await pool.query(query);
+    return rows;
+  } catch (error) {
+    console.error("DB 조회 오류:", error);
+    return false;
+  }
+};
+
 module.exports = {
   allproduct,
   postData,
@@ -184,4 +225,7 @@ module.exports = {
   checkProductId,
   getProductByCategory,
   getProductByAll,
+  cartAllProduct,
+  postCartData,
+  getCartAndProducts,
 };

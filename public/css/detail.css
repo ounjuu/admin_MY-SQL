@@ -467,3 +467,71 @@ i {
     font-size: 13px;
   }
 }
+
+/* 장바구니 수량 */
+.inputBoxs {
+  display: flex;
+  align-items: stretch;
+  gap: 0px;
+}
+
+.quantityInput,
+.quantityBtn {
+  width: 35px;
+  height: 36px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.quantityBtn {
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* 버튼 내부 텍스트 중앙 정렬 */
+  justify-content: center;
+}
+
+/* 수량 입력 필드의 기본 스타일 */
+.quantityInput {
+  width: 35px;
+  height: 35px;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 0;
+  background-color: white;
+}
+
+.quantityInput:focus {
+  outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.totalDiv p {
+  text-align: right;
+  font-weight: bold;
+  margin-left: 35px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.cartCountBox {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.totalPrice {
+  min-width: 200px;
+}

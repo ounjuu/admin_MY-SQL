@@ -20,7 +20,7 @@ document.querySelectorAll(".cateimgWrap").forEach((item) => {
       fetch(`/products/main/all/${category}`)
         .then((response) => response.json())
         .then((data) => {
-          updateProductList(data.data); // 상품 목록 업데이트
+          updateProductList(data.data);
         })
         .catch((error) => console.error("Error:", error));
     } else {
@@ -82,7 +82,6 @@ function updateProductList(products) {
   });
 }
 
-// 스크롤 글씨 변화
 // 스크롤 이벤트 감지
 window.addEventListener("scroll", function () {
   const element = document.querySelector(".kikipopoanimation");

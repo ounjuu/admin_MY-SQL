@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Gowun+Dodum&family=Manrope:wght@200..800&family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/public/css/write.css" />
     <title>fix</title>
@@ -67,7 +71,7 @@
                   <label for="productContent">상품 상세설명</label>
                 </div>
                 <div class="textareaBox">
-                  <textarea
+                  <!-- <textarea
                     placeholder="상세내용을 입력해 주세요."
                     id="productContent"
                     name="productContent"
@@ -75,7 +79,11 @@
                     required
                   >
 <%= data[0].description %></textarea
-                  >
+                  > -->
+                  <div id="product-description" style="display: none">
+                    <%= data[0].description %>
+                  </div>
+                  <div id="editor"></div>
                   <div class="contentText"></div>
                 </div>
               </div>
@@ -148,5 +156,7 @@
     </div>
     <div class="footer_wrap"><%- include('footer.ejs') %></div>
   </body>
+  <!-- toast editor -->
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
   <script src="/public/js/write.js"></script>
 </html>
