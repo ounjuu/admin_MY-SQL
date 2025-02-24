@@ -60,7 +60,7 @@ const updateForm = (id) => {
         window.location.href = "/products";
       }
 
-      if (res.data.status === "success" || res.status === 200) {
+      if (res.data && res.data.status === "success") {
         alert("수정 성공");
         window.location.href = "/products";
       } else {

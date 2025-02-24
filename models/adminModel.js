@@ -76,26 +76,43 @@ const deleteRow = async (id) => {
 const updateRow = async (data, files) => {
   try {
     let productImages = [];
-    if (files && files.length > 0) {
-      files.forEach((file) => {
-        productImages.push("/uploads/" + file.filename); // 파일 경로 생성
-      });
-    } else if (data.keepExistingImages) {
-      const [existingProduct] = await pool.query(
-        "SELECT image_url_1, image_url_2 FROM products WHERE id = ?",
-        [data.id]
-      );
-      if (existingProduct.length === 0) {
-        throw new Error("해당 ID의 상품을 찾을 수 없습니다.");
-      }
 
-      // 기존 이미지가 존재할 경우 추가
+    const [existingProduct] = await pool.query(
+      "SELECT image_url_1, image_url_2 FROM products WHERE id = ?",
+      [data.id]
+    );
+
+    if (!existingProduct || existingProduct.length === 0) {
+      throw new Error("해당 ID의 상품을 찾을 수 없습니다.");
+    }
+
+    if (files && files.length === 1) {
+      productImages = ["/uploads/" + files[0].filename, ""];
+    } else if (files && files.length === 2) {
+      productImages = [
+        "/uploads/" + files[0].filename,
+        "/uploads/" + files[1].filename,
+      ];
+    } else {
       productImages = [
         existingProduct[0].image_url_1,
         existingProduct[0].image_url_2,
-      ].filter(Boolean); // null이나 빈 값을 제거
+      ];
     }
-    let query = `UPDATE products SET name = ?, price = ?, description = ?, category = ?, image_url_1 = ?, image_url_2 = ? where id = ?`;
+
+    const isDataChanged =
+      data.name !== existingProduct[0].name ||
+      data.price !== existingProduct[0].price ||
+      data.description !== existingProduct[0].description ||
+      data.category !== existingProduct[0].category ||
+      productImages[0] !== existingProduct[0].image_url_1 ||
+      productImages[1] !== existingProduct[0].image_url_2;
+
+    if (!isDataChanged) {
+      return null;
+    }
+
+    let query = `UPDATE products SET name = ?, price = ?, description = ?, category = ?, image_url_1 = ?, image_url_2 = ? WHERE id = ?`;
 
     await pool.query(query, [
       data.name,
@@ -106,8 +123,10 @@ const updateRow = async (data, files) => {
       productImages[1] || "",
       data.id,
     ]);
+
+    return true;
   } catch (e) {
-    console.log(e);
+    console.error(e);
     throw new Error("데이터 수정 실패");
   }
 };

@@ -58,7 +58,6 @@ const moveWrite = async (req, res) => {
 // 해당 아이템 수정
 const dataUpdate = async (req, res) => {
   const fixData = await adminModel.updateRow(req.body, req.files);
-
   if (!fixData) {
     return res.status(204).send();
   }
