@@ -1,17 +1,10 @@
 
 # 🔷: KIKIPOPO 관리자 페이지(상품 관리) README - DB(MY SQL)
-
-<div align="center">
-<img width="80%" alt="image" src="https://github.com/user-attachments/assets/a020a76b-d62a-43a2-b0f4-fb20f9172ef6" /></div>
-
-
-<div align="center">
-<img width="80%" alt="image" src="https://github.com/user-attachments/assets/b1366d62-2919-4f12-83d3-6b8bfb87a0ed" /></div>
-
-
 <div align="center">
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/b626d391-b400-4fdc-8ef5-ec8c2d7e8f72" /></div>
 
+<div align="center">
+<img width="80%" alt="image" src="https://github.com/user-attachments/assets/b1366d62-2919-4f12-83d3-6b8bfb87a0ed" /></div>
 
 ## :page_facing_up: 프로젝트 소개
 1. <b>상품을 등록하고 관리할 수 있는 웹 사이트 입니다. </b>
@@ -98,6 +91,12 @@
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/185867c2-7520-4dd1-90a2-7c758811a45e" /></div>
 
 #### ➕ 찜버튼 누른 상품들 볼 수 있는 페이지 추가
-<div align="center">
-<img width="80%" alt="image" src="https://github.com/user-attachments/assets/105135d2-9ece-491d-83fa-5625ef2d456a" /></div>
 
+
+<div align="center">
+<img width="50%" alt="image" src="https://github.com/user-attachments/assets/4aed7c5e-ee9d-47bf-b8bd-c6f2990ce32c" /></div>
+
+
+<div align="center">
+<img width="45%" alt="image" src="https://github.com/user-attachments/assets/94630332-8d3a-47ba-a158-9f89961ca02f" />
+<img width="45%" alt="image" src="https://github.com/user-attachments/assets/a020a76b-d62a-43a2-b0f4-fb20f9172ef6" /></div>
