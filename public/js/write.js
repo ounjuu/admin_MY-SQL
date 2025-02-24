@@ -1,13 +1,10 @@
 document.getElementById("productImage").addEventListener("change", function () {
   const fileInput = this;
   const files = fileInput.files;
+  const imageupText = document.getElementById("imageupText");
 
   if (!files.length) {
-    document.getElementById("imageupText").innerText = "선택된 파일 없음";
-    document.getElementById("preview1").style.display = "none";
-    document.getElementById("preview2").style.display = "none";
-    document.getElementById("imgpreviewbox1").src = "";
-    document.getElementById("imgpreviewbox2").src = "";
+    imageupText.innerText = "선택된 파일 없음";
     return;
   }
 
@@ -22,7 +19,10 @@ document.getElementById("productImage").addEventListener("change", function () {
     }
   });
 
-  // 파일이 변경되었음을 표시 (새로 선택된 경우)
+  if (files.length === 1) {
+    preview2.style.display = "none";
+  }
+
   fileInput.setAttribute("data-changed", "true");
 });
 
@@ -55,7 +55,12 @@ const updateForm = (id) => {
   })
     .then((res) => {
       console.log(res);
-      if (res.status === 200) {
+      if (res.status === 204) {
+        alert("변경된 내용이 없습니다.");
+        window.location.href = "/products";
+      }
+
+      if (res.data.status === "success" || res.status === 200) {
         alert("수정 성공");
         window.location.href = "/products";
       } else {

@@ -13,13 +13,10 @@ theadWrap.innerHTML = `<thead>
       </thead>`;
 
 // 버튼
-
-// 이미지 불러오기 버튼 클릭 시 파일 선택 창 열기
 document.getElementById("uploadDiv").addEventListener("click", function () {
   document.getElementById("productImage").click();
 });
 
-// 파일 선택 시 파일명을 표시하고 미리보기 업데이트
 document.getElementById("productImage").addEventListener("change", function () {
   const fileInput = this;
   const files = fileInput.files;

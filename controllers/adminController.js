@@ -58,7 +58,11 @@ const moveWrite = async (req, res) => {
 // 해당 아이템 수정
 const dataUpdate = async (req, res) => {
   const fixData = await adminModel.updateRow(req.body, req.files);
-  res.status(200).send("상품 등록 성공");
+
+  if (!fixData) {
+    return res.status(204).send();
+  }
+  res.status(200).json({ status: "success", message: "상품 등록 성공" });
 };
 
 // 상품 ID 중복 검사 컨트롤러
