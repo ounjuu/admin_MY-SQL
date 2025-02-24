@@ -34,7 +34,9 @@ a {
 .shopFooter {
   margin-top: auto;
 }
-
+.headerinlogo {
+  padding-top: 10px;
+}
 /* 전체 스크롤바 */
 ::-webkit-scrollbar {
   width: 10px;
@@ -287,10 +289,6 @@ a {
   .productName {
     font-size: 15px;
   }
-
-  .productPrice {
-    font-size: 13px;
-  }
 }
 
 /* 부드러운 등장 애니메이션 */
@@ -389,5 +387,83 @@ i {
   .column {
     width: auto;
     padding-top: 0%;
+  }
+  .productRight {
+    padding: 10px 0px 0px 0px;
+  }
+}
+
+/* 반응형 스타일 */
+@media (max-width: 1024px) {
+  .detailAllWrap {
+    flex-direction: column;
+  }
+
+  .productLeft,
+  .productRight {
+    width: 100%;
+  }
+
+  .productRight {
+    margin-left: 0;
+    position: static;
+  }
+
+  .buttonWrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .productPrice {
+    font-size: 13px;
+  }
+
+  .productdetail {
+    font-size: 11px;
+  }
+
+  .buttonWrap button {
+    width: 100%;
+  }
+
+  .column {
+    padding-top: 20%;
+  }
+}
+
+@media (max-width: 480px) {
+  .productName {
+    font-size: 14px;
+  }
+
+  .productPrice,
+  .cartin {
+    font-size: 12px;
+  }
+
+  .productdetail {
+    font-size: 10px;
+  }
+
+  .buttonWrap {
+    padding-top: 10px;
+  }
+
+  .column {
+    padding-top: 0;
+  }
+
+  .imgWrap img {
+    max-height: 400px;
+  }
+
+  .couponBtn {
+    font-size: 13px;
   }
 }

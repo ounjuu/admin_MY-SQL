@@ -21,7 +21,6 @@ const upload = multer({ storage: storage }); // multer 인스턴스 생성
 const adminRouters = require("./routes/adminRoutes");
 
 app.use(express.urlencoded({ extended: true }));
-// json 형식으로 받을 것임
 app.use(express.json());
 // 라우터
 app.use("/products", adminRouters);
@@ -30,8 +29,8 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
 // EJS 설정
-app.set("view engine", "ejs"); // ejs 파일 html로 변경
-app.set("views", path.join(__dirname, "views")); // ejs 파일 위치 설정
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 app.post("/products/nowimg", upload.array("productImage", 2), (req, res) => {
   const productImage = req.files.map((file) => "/uploads/" + file.filename);
@@ -39,9 +38,8 @@ app.post("/products/nowimg", upload.array("productImage", 2), (req, res) => {
   res.json({ productImage });
 });
 
-// 404 에러 페이지 처리
 app.use((req, res) => {
-  res.status(404).render("404"); // 404.ejs 파일 렌더링
+  res.status(404).render("404");
 });
 
 app.listen(port, () => {
