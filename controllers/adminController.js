@@ -182,17 +182,26 @@ const getcartProduct = async (req, res) => {
   }
 };
 
-// 장바구니 수량 변경
+//장바구니 수량
 const updateCartQuantity = async (req, res) => {
   console.log(req.body, "body?");
+
   try {
-    const { product_id, quantity } = req.body;
-    const success = await adminModel.updateCartQuantity(product_id, quantity);
+    const { cartItemId, quantity } = req.body;
+    const success = await adminModel.updateCartQuantity(cartItemId, quantity);
+
     if (success) {
       const productData = await adminModel.getCartAndProducts();
       const updatedProduct = productData.find(
-        (item) => item.product_id === Number(product_id)
+        (item) => item.cart_id === Number(cartItemId)
       );
+
+      if (!updatedProduct) {
+        return res.status(404).json({
+          success: false,
+          message: "업데이트된 상품을 찾을 수 없습니다.",
+        });
+      }
 
       res.json({
         success: true,
@@ -207,6 +216,13 @@ const updateCartQuantity = async (req, res) => {
     res.status(500).json({ success: false, message: "서버 오류 발생" });
   }
 };
+
+// 해당 아이디 삭제
+const deleteCartData = async (req, res) => {
+  await adminModel.deleteCartRow(req.params.id);
+  res.send("200");
+};
+
 module.exports = {
   getallProduct,
   createpost,
@@ -222,4 +238,5 @@ module.exports = {
   createCartData,
   getcartProduct,
   updateCartQuantity,
+  deleteCartData,
 };

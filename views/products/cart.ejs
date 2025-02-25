@@ -28,6 +28,7 @@
     <div class="allWrapper">
       <!-- 헤더 만들기 -->
       <div class="shopHeader"><%- include('header.ejs') %></div>
+
       <div class="shopContent">
         <!--  -->
         <div class="cart_Box">
@@ -72,14 +73,17 @@
                     value="<%= item.total_quantity %>"
                     min="1"
                     class="quantity-input"
-                    onchange="quantitychange('<%= item.product_id %>', this.value)"
+                    onchange="quantitychange('<%= item.cart_id %>', this.value)"
                   />
                 </div>
                 <div class="productPrice">
                   <%= item.price * item.total_quantity %> 원
                 </div>
                 <div class="buttonWrap">
-                  <button class="cartout">
+                  <button
+                    class="cartout"
+                    onclick="deleteProduct('<%= item.product_id %>')"
+                  >
                     <i class="fa-solid fa-trash"></i>
                   </button>
                 </div>

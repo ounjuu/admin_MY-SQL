@@ -69,5 +69,5 @@ router.put(
 );
 
 router.delete("/delete/:id", adminController.deleteData);
-
+router.delete("/cart/delete/:id", adminController.deleteCartData);
 module.exports = router;

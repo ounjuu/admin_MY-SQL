@@ -199,6 +199,7 @@ const getCartAndProducts = async () => {
   try {
     const query = `
 SELECT 
+  MIN(cart.id) AS cart_id,
   cart.product_id, 
   products.name, 
   products.price,
@@ -216,27 +217,27 @@ GROUP BY cart.product_id, products.name, products.price, products.image_url_1
   }
 };
 
-// 장바구니 수량 변경
-const updateCartQuantity = async (product_id, quantity) => {
+// 수량 업데이트
+const updateCartQuantity = async (cartItemId, quantity) => {
+  console.log(cartItemId, "de???");
   try {
-    const query = "SELECT * FROM products WHERE id = ?";
-    const [product] = await pool.query(query, [product_id]);
-    if (!product || product.length === 0) {
-      throw new Error("상품을 찾을 수 없습니다.");
-    }
+    const updateQuery = "UPDATE cart SET quantity = ? WHERE id = ?";
+    const [result] = await pool.query(updateQuery, [quantity, cartItemId]);
 
-    let price = parseFloat(product[0].price);
-    if (isNaN(price)) {
-      throw new Error("가격 정보가 잘못되었습니다.");
-    }
-
-    const updateQuery = "UPDATE cart SET quantity = ? WHERE product_id = ?";
-    const [result] = await pool.query(updateQuery, [quantity, product_id]);
-
-    return result;
+    return result.affectedRows > 0;
   } catch (error) {
     console.error("장바구니 수량 업데이트 오류:", error);
     return false;
+  }
+};
+
+// 해당 아이디를 가진 장바구니 아이템 삭제
+const deleteCartRow = async (id) => {
+  const query = `DELETE FROM cart WHERE product_id = ${Number(id)}`;
+  try {
+    await pool.query(query, [id]);
+  } catch (e) {
+    console.log("삭제실패");
   }
 };
 
@@ -253,4 +254,5 @@ module.exports = {
   postCartData,
   getCartAndProducts,
   updateCartQuantity,
+  deleteCartRow,
 };

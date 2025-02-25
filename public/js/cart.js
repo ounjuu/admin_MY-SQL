@@ -1,14 +1,13 @@
-function quantitychange(productId, newQuantity) {
-  console.log(newQuantity, "new?");
+function quantitychange(cartItemId, newQuantity) {
   axios
     .post("/products/cart/update", {
-      product_id: productId,
-      quantity: newQuantity,
+      cartItemId: Number(cartItemId),
+      quantity: Number(newQuantity),
     })
     .then((response) => {
       if (response.data.success) {
         console.log("수량 변경 성공!");
-        updateTotalPrice(productId, response.data.newTotalPrice);
+        updateTotalPrice(cartItemId, response.data.newTotalPrice);
       } else {
         alert("수량 변경 실패");
       }
@@ -17,6 +16,7 @@ function quantitychange(productId, newQuantity) {
       console.error("수량 변경 요청 실패:", error);
     });
 }
+
 function updateTotalPrice(productId, newTotalPrice) {
   const row = document.querySelector(`[data-product-id='${productId}']`);
   if (row) {
@@ -24,3 +24,21 @@ function updateTotalPrice(productId, newTotalPrice) {
       newTotalPrice.toLocaleString() + " 원";
   }
 }
+// 장바구니 아이템 하나 삭제
+const deleteProduct = (id) => {
+  axios({
+    method: "delete",
+    url: `/products/cart/delete/${id}`,
+  })
+    .then((res) => {
+      if (res.status === 200) {
+        alert("삭제 성공");
+        window.location.reload();
+      } else {
+        alert("아이템 삭제에 실패했습니다.");
+      }
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
