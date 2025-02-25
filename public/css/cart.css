@@ -100,8 +100,8 @@
 .cart_Box {
   min-height: 500px;
   max-width: 1280px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 /* 휴지통 버튼 css */
@@ -163,95 +163,34 @@ button {
 
 .buttonWrap {
   width: 10%;
-  text-align: center;
+  text-align: right;
 }
 
+/* 모바일 반응형 */
 @media (max-width: 768px) {
   .cart_Box {
     padding-left: 40px;
     padding-right: 40px;
   }
+
   .fa-solid {
     font-size: 20px;
   }
-}
 
-.cart_wrap {
-  font-size: 13px;
-}
-
-@media (max-width: 768px) {
   .cartout {
     font-size: 10px;
     padding: 10px;
-    width: 150px;
+    width: 0px;
+    text-align: center;
   }
 
   .cart_wrap {
     font-size: 12px;
   }
-}
 
-@media (max-width: 480px) {
-  .cart_Box {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .cart_wrap {
-    font-size: 8px;
-  }
-
-  .th_name {
-    font-size: 9px;
-  }
-  .fa-solid {
-    font-size: 15px;
-  }
-}
-
-/* 총 상품 금액 */
-.countBoxWrap {
-  margin-top: 30px;
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
-}
-
-.countBox {
-  font-size: 12px;
-  border-bottom: solid 1px #989898;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 5px;
-}
-
-.priceBox {
-  font-size: 20px;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 10px;
-}
-
-.priceBoxbottom {
-  font-size: 12px;
-  color: gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.priceBoxWrap {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-@media (max-width: 768px) {
-  /* 총 상품 금액 */
-
-  .countBox {
-    font-size: 10px;
+  .btexchange,
+  .btdeliver {
+    width: 48%;
   }
 
   .priceBox {
@@ -264,6 +203,32 @@ button {
 }
 
 @media (max-width: 480px) {
+  .cart_Box {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .cart_wrap {
+    font-size: 8px;
+  }
+  .productName {
+    font-size: 10px;
+  }
+  .productPrice {
+    font-size: 9px;
+    font-weight: bold;
+  }
+  .quantity-input {
+    width: 70%;
+  }
+  .th_name {
+    font-size: 9px;
+  }
+
+  .fa-solid {
+    font-size: 15px;
+  }
+
   .countBox {
     font-size: 9px;
   }
@@ -275,20 +240,7 @@ button {
   .priceBoxbottom {
     font-size: 9px;
   }
-}
 
-.buynow {
-  width: 180px;
-  padding: 13px;
-  background: #ffffff;
-  color: #333;
-  cursor: pointer;
-  margin-top: 10px;
-  font-size: 14px;
-  border: solid 1px black;
-}
-
-@media (max-width: 768px) {
   .buynow {
     font-size: 10px;
     padding: 10px;

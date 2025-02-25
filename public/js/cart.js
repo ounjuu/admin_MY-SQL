@@ -39,7 +39,7 @@ const deleteProduct = (id) => {
           title: "삭제 성공",
           text: "해당 상품이 삭제되었습니다.",
         }).then(() => {
-          window.location.reload(); // Swal 알림이 닫힌 후 새로 고침
+          window.location.reload();
         });
       } else {
         alert("아이템 삭제에 실패했습니다.");

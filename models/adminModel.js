@@ -242,7 +242,6 @@ const updateCartQuantity = async (cartItemId, quantity, product_id) => {
   try {
     const updateQuery = "UPDATE cart SET quantity = ? WHERE id = ?";
     const [result] = await pool.query(updateQuery, [quantity, cartItemId]);
-
     return result.affectedRows > 0;
   } catch (error) {
     console.error("장바구니 수량 업데이트 오류:", error);
