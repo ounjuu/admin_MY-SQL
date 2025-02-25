@@ -101,5 +101,9 @@ const menuclick = () => {
     icon: "info",
     title: "준비 중입니다.",
     text: "조금만 기다려주세요.",
+    customClass: {
+      title: "swal-title",
+      popup: "swal-popup",
+    },
   });
 };

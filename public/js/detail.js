@@ -64,6 +64,10 @@ const cartIn = (id, cart_product_id) => {
           showCancelButton: true,
           confirmButtonText: "네",
           cancelButtonText: "아니오",
+          customClass: {
+            title: "swal-title",
+            popup: "swal-popup",
+          },
         }).then((result) => {
           if (result.isConfirmed) {
             window.location.href = "/products/cart";

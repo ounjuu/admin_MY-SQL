@@ -38,6 +38,10 @@ const deleteProduct = (id) => {
           icon: "info",
           title: "삭제 성공",
           text: "해당 상품이 삭제되었습니다.",
+          customClass: {
+            title: "swal-title",
+            popup: "swal-popup",
+          },
         }).then(() => {
           window.location.reload();
         });
