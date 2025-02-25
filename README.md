@@ -8,7 +8,7 @@
 
 ## :page_facing_up: 프로젝트 소개
 #### 1. <b>상품을 등록하고 관리할 수 있는 웹 사이트 입니다. </b>
-#### 2. <b>MySQL 데이터베이스와 JavaScript, Node.js를 사용하여 상품 정보를 저장하고, 관리할 수 있는 시스템을 구축했습니다.</b><br/><br/>
+#### 2. <b>MySQL 데이터베이스와 JavaScript, Node.js를 사용하여 상품 정보를 저장하고, 관리할 수 있는 시스템을 구축하였습니다.</b><br/><br/>
 
 ## :high_brightness: 개발 환경
 <div align="center">
@@ -19,11 +19,11 @@
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
 <img src="https://img.shields.io/badge/Bootstrapap-7952B3?style=flat-square&logo=bootstrap&logoColor=white"/></div>
-<br/><br/>
+<br/>
 
 ## :hammer: 주요기능
-###  1. 관리자 페이지 
-#### ✅  관리자 페이지에서 상품 등록<br/>
+### 📑 1. 관리자 페이지 
+#### ✅  관리자 상품 등록 페이지 <br/>
 
 <div align="center">
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/0d62b7fd-1190-49d3-9ad3-0aa868449eaa" /></div><br/>
@@ -45,40 +45,45 @@
 <br/>
 <br/>
 
-###  2. SHOP 메인 페이지 
+#### ✅  관리자 상품 수정 페이지 <br/>
+<div align="center">
+<img width="80%" alt="image" src="https://github.com/user-attachments/assets/12322142-2221-445c-a245-e8a191e79a5a" /></div>
+
+#### 1. 관리자 페이지에서 수정 버튼 클릭 시 수정 페이지로 이동합니다. <br/>
+#### 2. DB에서 해당 아이템의 정보를 가져오도록 하였습니다. <br/>
+#### 3. 수정하지 않는 경우 원래 정보 그대로 저장됩니다. <br/><br/>
+
+### 📑 2. SHOP 메인 페이지 
 #### ✅  등록한 상품 - 메인 페이지에서 확인 가능<br/>
 #### 1. 메인 쇼핑몰 페이지에서 등록한 상품을 확인할 수 있습니다. (My sql - DB) <br/>
 #### 2. 각 메뉴명을 클릭하면, 등록 시 설정한 카테고리별 상품을 확인할 수 있습니다. <br/>
-<img width="80%" alt="image" src="https://github.com/user-attachments/assets/e0f614da-3d4b-415f-b74c-f8dfc0baaf34" /><br/>
+<div align="center">
+<img width="80%" alt="image" src="https://github.com/user-attachments/assets/e0f614da-3d4b-415f-b74c-f8dfc0baaf34" /></div><br/>
 
 #### 3. 상품 hover시 등록 페이지에서 등록한 사진 2개가 번갈아서 나타납니다. <br/>
 #### 4. 상품을 클릭하면, 해당하는 상품 상세 페이지로 이동합니다. <br/>
-#### 5. 캐러셀은 부트스트랩을 이용하여 구현하였습니다. (CSS) <br/>
-#### 6. 글씨와 이미지가 흘러가는 효과를 구현하였습니다. (CSS) <br/><br/>
-
 <br/><br/>
 
-###  3. SHOP 상품 상세 페이지 
+### 📑 3. SHOP 상품 상세 페이지 
 #### ✅  장바구니 담기 (DB) <br/>
 <div align="center">
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/cc9fb784-f7b6-4ac4-8fea-99fcf7eca214" /></div><br/>
 
 #### 1. 상세페이지에서 수량 선택 후 장바구니 담기 버튼을 누르면 장바구니에 담깁니다.<br/>
 #### 2. 담기 버튼 클릭 시 DB의 id값이 있으면 수량만 추가되도록 구현하였습니다. (테이블 중복 추가 방지)<br/>
-#### 3. 준비 중인 기능들은 sweetalert을 사용하여 "준비 중입니다."라는 안내창이 나타납니다.<br/>
+#### 3. 준비 중인 기능들은 sweetalert을 사용하여 "준비 중입니다."라는 안내창이 나타납니다.<br/><br/>
 
-###  3. SHOP 장바구니 페이지
+### 📑 4. SHOP 장바구니 페이지
 #### ✅  수량 변경 및 삭제 (DB) <br/>
 <div align="center"><img width="80%" alt="image" src="https://github.com/user-attachments/assets/ca015e2e-d3bb-436c-a9f0-4d42ad87f16a" /></div><br/>
 
-### 4. CSS (반응형 및 스크롤바 변경 등)
+#### 1. 수량을 변경하면 금액이 같이 변경되도록 하였습니다. <br/>
+#### 2. 변경된 정보는 DB에 저장됩니다. <br/><br/>
+
+### 📑 5. CSS (반응형 및 스크롤바 변경 등)
+#### ✅ 모든 페이지는 반응형으로 구현하였습니다. <br/>
+#### ✅ 스크롤바 변경, 캐러셀, top 버튼, 글씨 및 이미지 흘러가는 효과 등을 구현하였습니다. <br/>
 <div align="center">
- <img width="45%" alt="image" src="https://github.com/user-attachments/assets/07327deb-313e-483e-bacd-96d4c1778002" />
-<img width="45%" alt="image" src="https://github.com/user-attachments/assets/1e7b9a2f-da0c-447c-9332-d7835af7a419" /></div>
-
-
-## :star: 추가 구현 완료 리스트
-
-<div align="center">
-<img width="45%" alt="image" src="https://github.com/user-attachments/assets/94630332-8d3a-47ba-a158-9f89961ca02f" />
-<img width="45%" alt="image" src="https://github.com/user-attachments/assets/a020a76b-d62a-43a2-b0f4-fb20f9172ef6" /></div>
+<img width="45%" height="1200px" alt="image" src="https://github.com/user-attachments/assets/1e7b9a2f-da0c-447c-9332-d7835af7a419" />
+<img width="45%" height="1200px" alt="image" src="https://github.com/user-attachments/assets/d7dcc790-485a-4b73-8468-60c4e9910afe" />
+</div>
