@@ -184,12 +184,32 @@ const cartAllProduct = async () => {
 
 // 장바구니 db에 넣기
 const postCartData = async (data) => {
-  const query = "INSERT INTO cart (product_id, quantity) VALUES (?, ?)";
   try {
-    const [rows] = await pool.query(query, [data.product_id, data.quantity]);
-    return rows;
+    const checkCartQuery = "SELECT * FROM cart WHERE product_id = ?";
+    const [cartRows] = await pool.query(checkCartQuery, [data.product_id]);
+
+    if (cartRows.length > 0) {
+      const currentQuantity = cartRows[0].quantity;
+      const newQuantity = currentQuantity + data.quantity;
+
+      const updateCartQuery =
+        "UPDATE cart SET quantity = ? WHERE product_id = ?";
+      const [updateResult] = await pool.query(updateCartQuery, [
+        newQuantity,
+        data.product_id,
+      ]);
+      return updateResult;
+    } else {
+      const insertQuery =
+        "INSERT INTO cart (product_id, quantity) VALUES (?, ?)";
+      const [insertResult] = await pool.query(insertQuery, [
+        data.product_id,
+        data.quantity,
+      ]);
+      return insertResult;
+    }
   } catch (error) {
-    console.error("DB 삽입 오류:", error);
+    console.error("DB 처리 오류:", error);
     throw error;
   }
 };
@@ -218,8 +238,7 @@ GROUP BY cart.product_id, products.name, products.price, products.image_url_1
 };
 
 // 수량 업데이트
-const updateCartQuantity = async (cartItemId, quantity) => {
-  console.log(cartItemId, "de???");
+const updateCartQuantity = async (cartItemId, quantity, product_id) => {
   try {
     const updateQuery = "UPDATE cart SET quantity = ? WHERE id = ?";
     const [result] = await pool.query(updateQuery, [quantity, cartItemId]);

@@ -47,12 +47,13 @@ minusButton.addEventListener("click", () => {
 updateTotalPrice();
 
 // 장바구니 금액 가져오기
-const cartIn = (id) => {
+const cartIn = (id, cart_product_id) => {
   const quantity = document.querySelector("#quantity").value;
   axios
     .post("/products/add-to-cart", {
       product_id: id,
       quantity: quantity,
+      cart_product_id: cart_product_id,
     })
     .then((res) => {
       if (res.data.success) {

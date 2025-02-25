@@ -46,7 +46,7 @@ const createpost = (req, res) => {
 // 장바구니 등록
 const createCartData = async (req, res) => {
   try {
-    const { product_id, quantity } = req.body;
+    const { product_id, quantity, cart_product_id } = req.body;
     const result = await adminModel.postCartData(req.body);
 
     if (result) {
@@ -184,11 +184,13 @@ const getcartProduct = async (req, res) => {
 
 //장바구니 수량
 const updateCartQuantity = async (req, res) => {
-  console.log(req.body, "body?");
-
   try {
-    const { cartItemId, quantity } = req.body;
-    const success = await adminModel.updateCartQuantity(cartItemId, quantity);
+    const { cartItemId, quantity, product_id } = req.body;
+    const success = await adminModel.updateCartQuantity(
+      cartItemId,
+      quantity,
+      product_id
+    );
 
     if (success) {
       const productData = await adminModel.getCartAndProducts();
@@ -220,7 +222,7 @@ const updateCartQuantity = async (req, res) => {
 // 해당 아이디 삭제
 const deleteCartData = async (req, res) => {
   await adminModel.deleteCartRow(req.params.id);
-  res.send("200");
+  return res.status(200).json({ success: true, message: "삭제 성공" });
 };
 
 module.exports = {

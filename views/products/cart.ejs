@@ -57,7 +57,7 @@
           <div class="cart_wrap cart_wrap2"></div>
           <div class="cartPrice"></div>
           <div class="cartbtn_wrap">
-            <div class="cart_divs detailWrap${x.id}">
+            <div class="cart_divs detailWrap">
               <% let totalPrice = 0; %> <% cartData.forEach(item => { %>
               <div class="detailboxWrap">
                 <div class="imgWrap">
@@ -73,10 +73,10 @@
                     value="<%= item.total_quantity %>"
                     min="1"
                     class="quantity-input"
-                    onchange="quantitychange('<%= item.cart_id %>', this.value)"
+                    onchange="quantitychange('<%= item.cart_id %>', this.value, '<%= item.price %>', '<%= item.product_id %>')"
                   />
                 </div>
-                <div class="productPrice">
+                <div class="productPrice" id="price-<%= item.cart_id %>">
                   <%= item.price * item.total_quantity %> 원
                 </div>
                 <div class="buttonWrap">

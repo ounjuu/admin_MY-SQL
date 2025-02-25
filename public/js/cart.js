@@ -1,13 +1,15 @@
-function quantitychange(cartItemId, newQuantity) {
+function quantitychange(cartItemId, newQuantity, pricePerItem, product_id) {
   axios
     .post("/products/cart/update", {
       cartItemId: Number(cartItemId),
       quantity: Number(newQuantity),
+      product_id: Number(product_id),
     })
     .then((response) => {
       if (response.data.success) {
         console.log("수량 변경 성공!");
-        updateTotalPrice(cartItemId, response.data.newTotalPrice);
+        const newTotalPrice = pricePerItem * newQuantity;
+        updateTotalPrice(cartItemId, newTotalPrice);
       } else {
         alert("수량 변경 실패");
       }
@@ -17,13 +19,13 @@ function quantitychange(cartItemId, newQuantity) {
     });
 }
 
-function updateTotalPrice(productId, newTotalPrice) {
-  const row = document.querySelector(`[data-product-id='${productId}']`);
-  if (row) {
-    row.querySelector(".total-price").innerText =
-      newTotalPrice.toLocaleString() + " 원";
+function updateTotalPrice(cartItemId, newTotalPrice) {
+  const priceElement = document.querySelector(`#price-${cartItemId}`);
+  if (priceElement) {
+    priceElement.textContent = `${newTotalPrice} 원`;
   }
 }
+
 // 장바구니 아이템 하나 삭제
 const deleteProduct = (id) => {
   axios({
@@ -32,8 +34,13 @@ const deleteProduct = (id) => {
   })
     .then((res) => {
       if (res.status === 200) {
-        alert("삭제 성공");
-        window.location.reload();
+        Swal.fire({
+          icon: "info",
+          title: "삭제 성공",
+          text: "해당 상품이 삭제되었습니다.",
+        }).then(() => {
+          window.location.reload(); // Swal 알림이 닫힌 후 새로 고침
+        });
       } else {
         alert("아이템 삭제에 실패했습니다.");
       }
