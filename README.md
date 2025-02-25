@@ -7,8 +7,8 @@
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/d221feb4-4fb5-4f5d-b186-55795738d6e6" /></div>
 
 ## :page_facing_up: 프로젝트 소개
-#### 1. <b>상품을 등록하고 관리할 수 있는 웹 사이트 입니다. </b>
-#### 2. <b>MySQL 데이터베이스와 JavaScript, Node.js를 사용하여 상품 정보를 저장하고, 관리할 수 있는 시스템을 구축하였습니다.</b><br/><br/>
+ 1. 상품을 등록하고 관리할 수 있는 웹 사이트 입니다.
+ 2. MySQL 데이터베이스와 JavaScript, Node.js를 사용하여 상품 정보를 저장하고, 관리할 수 있는 시스템을 구축하였습니다.<br/><br/>
 
 ## :high_brightness: 개발 환경
 <div align="center">
@@ -23,7 +23,7 @@
 
 ## :hammer: 주요기능
 ### 📑 1. 관리자 페이지 
-#### ✅  관리자 상품 등록 페이지 <br/>
+ ✅  관리자 상품 등록 페이지 <br/>
 
 <div align="center">
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/0d62b7fd-1190-49d3-9ad3-0aa868449eaa" /></div><br/>
@@ -45,7 +45,7 @@
 <br/>
 <br/>
 
-#### ✅  관리자 상품 수정 페이지 <br/>
+ ✅  관리자 상품 수정 페이지 <br/>
 <div align="center">
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/12322142-2221-445c-a245-e8a191e79a5a" /></div>
 
@@ -54,7 +54,7 @@
 #### 3. 수정하지 않는 경우 원래 정보 그대로 저장됩니다. <br/><br/>
 
 ### 📑 2. SHOP 메인 페이지 
-#### ✅  등록한 상품 - 메인 페이지에서 확인 가능<br/>
+ ✅  등록한 상품 - 메인 페이지에서 확인 가능<br/>
 #### 1. 메인 쇼핑몰 페이지에서 등록한 상품을 확인할 수 있습니다. (My sql - DB) <br/>
 #### 2. 각 메뉴명을 클릭하면, 등록 시 설정한 카테고리별 상품을 확인할 수 있습니다. <br/>
 <div align="center">
@@ -65,7 +65,7 @@
 <br/><br/>
 
 ### 📑 3. SHOP 상품 상세 페이지 
-#### ✅  장바구니 담기 (DB) <br/>
+ ✅  장바구니 담기 (DB) <br/>
 <div align="center">
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/cc9fb784-f7b6-4ac4-8fea-99fcf7eca214" /></div><br/>
 
@@ -74,15 +74,15 @@
 #### 3. 준비 중인 기능들은 sweetalert을 사용하여 "준비 중입니다."라는 안내창이 나타납니다.<br/><br/>
 
 ### 📑 4. SHOP 장바구니 페이지
-#### ✅  수량 변경 및 삭제 (DB) <br/>
+ ✅  수량 변경 및 삭제 (DB) <br/>
 <div align="center"><img width="80%" alt="image" src="https://github.com/user-attachments/assets/ca015e2e-d3bb-436c-a9f0-4d42ad87f16a" /></div><br/>
 
 #### 1. 수량을 변경하면 금액이 같이 변경되도록 하였습니다. <br/>
 #### 2. 변경된 정보는 DB에 저장됩니다. <br/><br/>
 
 ### 📑 5. CSS (반응형 및 스크롤바 변경 등)
-#### ✅ 모든 페이지는 반응형으로 구현하였습니다. <br/>
-#### ✅ 스크롤바 변경, 캐러셀, top 버튼, 글씨 및 이미지 흘러가는 효과 등을 구현하였습니다. <br/>
+ ✅ 모든 페이지는 반응형으로 구현하였습니다. <br/>
+ ✅ 스크롤바 변경, 캐러셀, top 버튼, 글씨 및 이미지 흘러가는 효과 등을 구현하였습니다. <br/>
 <div align="center">
 <img width="45%" height="1200px" alt="image" src="https://github.com/user-attachments/assets/1e7b9a2f-da0c-447c-9332-d7835af7a419" />
 <img width="45%" height="1200px" alt="image" src="https://github.com/user-attachments/assets/d7dcc790-485a-4b73-8468-60c4e9910afe" />
