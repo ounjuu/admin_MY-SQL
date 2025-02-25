@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Gowun+Dodum&family=Manrope:wght@200..800&family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR&display=swap"
       rel="stylesheet"
@@ -20,6 +21,7 @@
     />
 
     <link rel="stylesheet" href="/public/css/cart.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>cart</title>
   </head>
   <body>
@@ -69,7 +71,8 @@
                     type="number"
                     value="<%= item.total_quantity %>"
                     min="1"
-                    class="quantity-input quantity-input"
+                    class="quantity-input"
+                    onchange="quantitychange('<%= item.product_id %>', this.value)"
                   />
                 </div>
                 <div class="productPrice">

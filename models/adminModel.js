@@ -216,6 +216,30 @@ GROUP BY cart.product_id, products.name, products.price, products.image_url_1
   }
 };
 
+// 장바구니 수량 변경
+const updateCartQuantity = async (product_id, quantity) => {
+  try {
+    const query = "SELECT * FROM products WHERE id = ?";
+    const [product] = await pool.query(query, [product_id]);
+    if (!product || product.length === 0) {
+      throw new Error("상품을 찾을 수 없습니다.");
+    }
+
+    let price = parseFloat(product[0].price);
+    if (isNaN(price)) {
+      throw new Error("가격 정보가 잘못되었습니다.");
+    }
+
+    const updateQuery = "UPDATE cart SET quantity = ? WHERE product_id = ?";
+    const [result] = await pool.query(updateQuery, [quantity, product_id]);
+
+    return result;
+  } catch (error) {
+    console.error("장바구니 수량 업데이트 오류:", error);
+    return false;
+  }
+};
+
 module.exports = {
   allproduct,
   postData,
@@ -228,4 +252,5 @@ module.exports = {
   cartAllProduct,
   postCartData,
   getCartAndProducts,
+  updateCartQuantity,
 };

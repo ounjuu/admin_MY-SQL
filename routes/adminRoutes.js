@@ -41,6 +41,7 @@ router.get("/main/:category", adminController.productsByCategory);
 router.get("/main/all/:category", adminController.getAllProductAPI);
 router.get("/cart/all", adminController.getCartAllProduct);
 router.get("/cart", adminController.getcartProduct);
+
 router.post(
   "/post/product",
   upload.array("productImage", 2),
@@ -48,6 +49,7 @@ router.post(
 );
 
 router.post("/add-to-cart", adminController.createCartData);
+router.post("/cart/update", adminController.updateCartQuantity);
 
 // toast editor 이미지
 // router.post("/upload", upload.single("image"), (req, res) => {

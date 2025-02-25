@@ -182,6 +182,31 @@ const getcartProduct = async (req, res) => {
   }
 };
 
+// 장바구니 수량 변경
+const updateCartQuantity = async (req, res) => {
+  console.log(req.body, "body?");
+  try {
+    const { product_id, quantity } = req.body;
+    const success = await adminModel.updateCartQuantity(product_id, quantity);
+    if (success) {
+      const productData = await adminModel.getCartAndProducts();
+      const updatedProduct = productData.find(
+        (item) => item.product_id === Number(product_id)
+      );
+
+      res.json({
+        success: true,
+        message: "수량 변경 성공",
+        newTotalPrice: updatedProduct.price * updatedProduct.total_quantity,
+      });
+    } else {
+      res.status(500).json({ success: false, message: "수량 변경 실패" });
+    }
+  } catch (error) {
+    console.error("장바구니 수량 업데이트 오류:", error);
+    res.status(500).json({ success: false, message: "서버 오류 발생" });
+  }
+};
 module.exports = {
   getallProduct,
   createpost,
@@ -196,4 +221,5 @@ module.exports = {
   getCartAllProduct,
   createCartData,
   getcartProduct,
+  updateCartQuantity,
 };

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const menu = document.querySelector(".headerinLeft");
 
   menuButton.addEventListener("click", () => {
-    menu.classList.toggle("headerinLeftshow"); // 메뉴 보이기/숨기기 토글
+    menu.classList.toggle("headerinLeftshow");
   });
 });
 
@@ -14,3 +14,20 @@ const menualert = () => {
     text: "조금만 기다려주세요.",
   });
 };
+
+// 탑버튼
+document.addEventListener("DOMContentLoaded", function () {
+  const topButton = document.getElementById("topButton");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 300) {
+      topButton.style.display = "block";
+    } else {
+      topButton.style.display = "none";
+    }
+  });
+
+  topButton.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
