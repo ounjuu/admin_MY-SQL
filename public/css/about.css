@@ -172,3 +172,69 @@ a {
   font-weight: 400;
   font-style: normal;
 }
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .instaPhoneBox {
+    width: 90%;
+  }
+
+  .instaChatBox {
+    flex-direction: column;
+    top: 150px;
+    margin: 0px 130px;
+  }
+
+  .insta_leftImages,
+  .insta_rightImages {
+    width: 100%;
+    text-align: center;
+  }
+  .insta_chat_Wrap {
+    padding-bottom: 1000px;
+  }
+  .instaChat {
+    top: 40%;
+  }
+
+  .instaPageText {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .instaPhoneBox {
+    width: 90%;
+  }
+
+  .instaChatBox img {
+    width: 100%;
+  }
+
+  .instaChat {
+    top: 30%;
+  }
+  .instaChatBox img {
+    margin-top: 50px;
+  }
+
+  .instaChatBox {
+    position: absolute;
+    display: flex;
+    margin: 0px 100px;
+    justify-content: space-between;
+    top: 300px;
+    z-index: 10;
+  }
+  .instaPageText {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  .insta_chat_Wrap {
+    padding-bottom: 500px;
+  }
+  .instaPageText p {
+    font-size: 10px;
+  }
+}
