@@ -1,0 +1,152 @@
+/* 기본 설정 */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  max-width: 1280px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin-top: 64px;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration-line: none;
+  color: inherit;
+}
+.allWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.shopContent {
+  flex: 1;
+}
+.shopFooter {
+  margin-top: auto;
+}
+.headerinlogo {
+  padding-top: 10px;
+}
+/* 전체 스크롤바 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0b43f7;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0a37d2;
+}
+
+/* 인스타 홍보 */
+.insta_chat_Wrap {
+  position: relative;
+
+  background-color: #8ba4ff;
+  height: 200vh;
+  padding-bottom: 200px;
+}
+
+.insta_chat_Box {
+  position: sticky;
+  left: 0;
+  top: 64px;
+  width: 100%;
+  padding-bottom: 200px;
+}
+
+.instaPhoneBox {
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+  top: 64px;
+  text-align: center;
+  z-index: 5;
+}
+/* 인스타 문구 */
+.instaText {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 50px;
+}
+
+.scroll {
+  display: flex;
+  animation: scrollText 120s linear infinite;
+}
+.scroll img {
+  margin: 10px 0;
+  margin-right: 30px;
+}
+
+@keyframes scrollText {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.insta_leftImages {
+  width: 30%;
+}
+.insta_rightImages {
+  width: 30%;
+}
+.instaChat {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instaChatBox {
+  position: absolute;
+  display: flex;
+  margin: 0px 100px;
+  justify-content: space-between;
+  top: -350px;
+  z-index: 10;
+}
+.instaChatBox img {
+  margin-top: 100px;
+}
+
+.insta_leftImages img,
+.insta_rightImages img {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.insta_leftImages .chat_Img1.scrollUp,
+.insta_leftImages .chat_Img5.scrollUp,
+.insta_leftImages .chat_Img3.scrollUp,
+.insta_rightImages .chat_Img2.scrollUp,
+.insta_rightImages .chat_Img4.scrollUp {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -36,7 +36,7 @@ router.get("/main", adminController.allProduct);
 router.get("/productWrite/:id", adminController.moveWrite);
 router.get("/detail/:id", adminController.productOne);
 // router.post("/post/product", adminController.createpost);
-
+router.get("/about", adminController.getAboutPage);
 router.get("/main/:category", adminController.productsByCategory);
 router.get("/main/all/:category", adminController.getAllProductAPI);
 router.get("/cart/all", adminController.getCartAllProduct);

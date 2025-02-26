@@ -34,6 +34,7 @@ a {
   z-index: 999;
   display: flex;
   justify-content: center;
+  max-width: 1280px;
 }
 
 .headerWrap {

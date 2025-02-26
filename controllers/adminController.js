@@ -225,6 +225,11 @@ const deleteCartData = async (req, res) => {
   return res.status(200).json({ success: true, message: "삭제 성공" });
 };
 
+// about 소개 페이지
+const getAboutPage = (req, res) => {
+  res.render("products/about");
+};
+
 module.exports = {
   getallProduct,
   createpost,
@@ -241,4 +246,5 @@ module.exports = {
   getcartProduct,
   updateCartQuantity,
   deleteCartData,
+  getAboutPage,
 };
