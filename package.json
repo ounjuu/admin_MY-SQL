@@ -19,6 +19,7 @@
   "description": "",
   "dependencies": {
     "@toast-ui/editor": "^3.2.2",
+    "cookie-parser": "^1.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "multer": "^1.4.5-lts.1",

@@ -107,3 +107,39 @@ const menuclick = () => {
     },
   });
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.querySelector(".events_alert");
+  const todayCloseBtn = document.querySelector(".todayCloseBtn");
+  const closeBtn = document.querySelector(".closeBtn");
+
+  function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+  }
+
+  function getCookie(name) {
+    const cookies = document.cookie.split("; ");
+    for (let i = 0; i < cookies.length; i++) {
+      const [cookieName, cookieValue] = cookies[i].split("=");
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  }
+
+  todayCloseBtn.addEventListener("click", function () {
+    setCookie("hidePopup", "true", 1);
+    popup.style.display = "none";
+  });
+
+  closeBtn.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+
+  if (getCookie("hidePopup") === "true") {
+    popup.style.display = "none";
+  }
+});

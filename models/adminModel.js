@@ -259,6 +259,8 @@ const deleteCartRow = async (id) => {
   }
 };
 
+// 쿠키 저장
+
 module.exports = {
   allproduct,
   postData,

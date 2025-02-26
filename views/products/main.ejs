@@ -26,6 +26,20 @@
     <div class="allWrapper">
       <!-- 헤더 만들기 -->
       <div class="shopHeader"><%- include('header.ejs') %></div>
+      <!-- 팝업창 띄우기 -->
+      <div class="events_alert">
+        <div class="eventWrap">
+          <div class="eventImgWrap">
+            <img class="eventImg" src="/public/img/cookie.png" />
+          </div>
+          <div class="eventBtnWrap">
+            <button class="todayCloseBtn blueBtn">오늘 하루 그만 보기</button>
+            <button class="closeBtn blueBtn" onclick="eventClose()">
+              닫기
+            </button>
+          </div>
+        </div>
+      </div>
       <!-- 본문 -->
       <div class="shopContent">
         <div class="kikicategory">
