@@ -82,11 +82,16 @@
 
 ### 📑 5. CSS (반응형 및 스크롤바 변경 등)
  ✅ 모든 페이지는 반응형으로 구현하였습니다. <br/>
+
  ✅ 스크롤바 변경, 캐러셀, top 버튼, 글씨 및 이미지 흘러가는 효과 등을 구현하였습니다. <br/>
 <div align="center">
 <img width="45%" height="1200px" alt="image" src="https://github.com/user-attachments/assets/1e7b9a2f-da0c-447c-9332-d7835af7a419" />
 <img width="45%" height="1200px" alt="image" src="https://github.com/user-attachments/assets/d7dcc790-485a-4b73-8468-60c4e9910afe" />
-</div>
+</div><br/><br/>
+
+ ✅ 쿠키를 이용해 이벤트 창(오늘 그만보기)을 구현하였습니다.<br/>
+<div align="center">
+<img width="80%" alt="image" src="https://github.com/user-attachments/assets/0f63e6b7-cf12-4f96-9ef2-1946859d69dc" /></div>
 
 ### 📑 6. SHOP ABOUT 소개 페이지
  ✅ CSS와 JS로 소개 페이지를 구현하였습니다. <br/>
