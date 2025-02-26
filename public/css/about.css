@@ -150,3 +150,25 @@ a {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* 하단 홍보 문구 */
+.instaPageText {
+  color: #0b43f7;
+  max-width: 1280px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+
+.titan-one-regular {
+  font-family: "Titan One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.do-hyeon-regular {
+  font-family: "Do Hyeon", serif;
+  font-weight: 400;
+  font-style: normal;
+}
