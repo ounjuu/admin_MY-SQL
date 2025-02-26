@@ -87,3 +87,7 @@
 <img width="45%" height="1200px" alt="image" src="https://github.com/user-attachments/assets/1e7b9a2f-da0c-447c-9332-d7835af7a419" />
 <img width="45%" height="1200px" alt="image" src="https://github.com/user-attachments/assets/d7dcc790-485a-4b73-8468-60c4e9910afe" />
 </div>
+
+### 📑 6. SHOP ABOUT 소개 페이지
+ ✅ CSS와 JS로 소개 페이지를 구현하였습니다. <br/>
+<div align="center"><img width="80%" alt="image" src="https://github.com/user-attachments/assets/a0f5611e-1cf2-48a8-8323-29ecd1499fd3" /></div><br/>
