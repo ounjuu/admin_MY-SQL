@@ -166,6 +166,10 @@ a {
   font-weight: 400;
   font-style: normal;
 }
+.titnaSize {
+  font-size: 85px; /* 뷰포트 너비의 6% */
+  text-align: center; /* 혹시 중앙 정렬이 필요하다면 */
+}
 
 .do-hyeon-regular {
   font-family: "Do Hyeon", serif;
@@ -196,7 +200,9 @@ a {
   .instaChat {
     top: 40%;
   }
-
+  .titnaSize {
+    font-size: 50px;
+  }
   .instaPageText {
     padding-top: 50px;
     padding-bottom: 100px;
@@ -234,7 +240,7 @@ a {
   .insta_chat_Wrap {
     padding-bottom: 500px;
   }
-  .instaPageText p {
-    font-size: 10px;
+  .titnaSize {
+    font-size: 30px;
   }
 }

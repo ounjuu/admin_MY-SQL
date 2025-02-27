@@ -259,6 +259,17 @@ const deleteCartRow = async (id) => {
   }
 };
 
+// 장바구니 전체 삭제
+const deleteAllCartItems = async () => {
+  const query = `DELETE FROM cart`;
+  try {
+    await pool.query(query);
+    console.log("장바구니 전체 삭제 완료");
+  } catch (e) {
+    console.log("전체 삭제 실패", e);
+  }
+};
+
 // 쿠키 저장
 
 module.exports = {
@@ -275,4 +286,5 @@ module.exports = {
   getCartAndProducts,
   updateCartQuantity,
   deleteCartRow,
+  deleteAllCartItems,
 };

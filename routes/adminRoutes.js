@@ -51,15 +51,6 @@ router.post(
 router.post("/add-to-cart", adminController.createCartData);
 router.post("/cart/update", adminController.updateCartQuantity);
 
-// toast editor 이미지
-// router.post("/upload", upload.single("image"), (req, res) => {
-//   if (!req.file) {
-//     return res.status(400).json({ error: "파일 업로드 실패" });
-//   }
-//   const imageUrl = `/uploads/${req.file.filename}`;
-//   res.json({ imageUrl });
-// });
-
 router.post("/idcheck", adminController.checkProductId);
 
 router.put(
@@ -70,4 +61,5 @@ router.put(
 
 router.delete("/delete/:id", adminController.deleteData);
 router.delete("/cart/delete/:id", adminController.deleteCartData);
+router.delete("/cart/deleteAll", adminController.deleteAllCartData);
 module.exports = router;

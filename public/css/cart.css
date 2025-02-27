@@ -255,3 +255,99 @@ button {
 .swal-popup {
   font-size: 18px !important;
 }
+.cartOutOrderBtn {
+  padding: 15px 30px;
+  height: auto; /* 고정 높이 제거 */
+  text-align: center; /* 텍스트 가로 중앙 정렬 */
+  line-height: 50px; /* 텍스트 세로 중앙 정렬을 위해 line-height 설정 */
+  margin-top: 50px;
+}
+
+.cartOutBtn,
+.cartOrderBtn {
+  width: 30%;
+  height: 45px;
+  display: block;
+  text-align: center;
+  line-height: 45px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.cartOutBtn {
+  background-color: #0b43f7;
+  color: white;
+}
+.cartOrderBtn {
+  color: #0b43f7;
+  background-color: white;
+  border: solid 1px gray;
+  margin-top: 20px;
+}
+
+/* 반응형 설정 */
+@media screen and (max-width: 768px) {
+  .cartOutOrderBtn {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .cartOutBtn,
+  .cartOrderBtn {
+    width: 80%;
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .cartOrderBtn {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cartOutBtn,
+  .cartOrderBtn {
+    width: 100%;
+    font-size: 12px;
+  }
+}
+
+/* 장바구니가 비어있습니다. */
+.emptyWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.empty {
+  width: 50%;
+  max-width: 200px;
+  height: auto;
+  opacity: 0.8;
+}
+
+/* 장바구니 총금액 */
+.cartAllCount {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  border-top: #000000 solid 2px;
+  border-bottom: #000000 solid 1px;
+  margin-top: 50px;
+}
+
+.cartAllOrderPrice {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  border-top: #000000 solid 1px;
+  border-bottom: #000000 solid 2px;
+}

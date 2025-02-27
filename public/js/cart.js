@@ -53,3 +53,122 @@ const deleteProduct = (id) => {
       console.log(e);
     });
 };
+
+// 장바구니 비우기, 주문하기 버튼
+const cartOutOrderBtn = document.querySelector(".cartOutOrderBtn");
+cartOutOrderBtn.innerHTML = `<div class="cartOutBtn" onclick="deleteAllProducts()">장바구니 비우기</div>
+                            <div class="cartOrderBtn" onclick="orderAlert()">주문하기</div>`;
+
+//장바구니 전체 삭제
+const deleteAllProducts = () => {
+  axios({
+    method: "delete",
+    url: "/products/cart/deleteAll",
+  })
+    .then((res) => {
+      if (res.status === 200) {
+        Swal.fire({
+          icon: "info",
+          title: "전체 삭제 성공",
+          text: "장바구니의 모든 상품이 삭제되었습니다.",
+          customClass: {
+            title: "swal-title",
+            popup: "swal-popup",
+          },
+        }).then(() => {
+          window.location.reload();
+        });
+      } else {
+        alert("장바구니 전체 삭제에 실패했습니다.");
+      }
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+
+const orderAlert = () => {
+  Swal.fire({
+    icon: "info",
+    title: "준비 중입니다.",
+    text: "조금만 기다려주세요.",
+    customClass: {
+      title: "swal-title",
+      popup: "swal-popup",
+    },
+  });
+};
+
+// cart 데이터 가져오기
+const cartItemsElement = document.getElementById("cartItems");
+const cartItems = JSON.parse(cartItemsElement.getAttribute("data-items"));
+
+const updateCartUI = async () => {
+  const cart_wrap = document.querySelector(".cart_wrap");
+  const cartOutBtn = document.querySelector(".cartOutBtn");
+  const cartOrderBtn = document.querySelector(".cartOrderBtn");
+
+  if (Array.isArray(cartItems) && cartItems.length < 1) {
+    cart_wrap.innerHTML = `
+      <div class="emptyWrap">
+        <img src="/public/img/emptyalert.png" class="empty"/>
+      </div>
+    `;
+    cartOutBtn.style.display = "none";
+    cartOrderBtn.style.display = "none";
+  } else {
+    cartOutBtn.style.display = "block";
+    cartOrderBtn.style.display = "block";
+    cart_wrap.innerHTML = "";
+  }
+};
+// 페이지 로드 시 장바구니 UI 업데이트
+window.onload = () => {
+  updateCartUI();
+};
+
+const productPrices = document.querySelectorAll(".quantity-input");
+const quantityInputs = document.querySelectorAll(".productPrice");
+
+let totalPrice = 0;
+let totalQuantity = 0;
+
+quantityInputs.forEach((input, index) => {
+  const quantity = parseInt(input.value); // 수량
+  const price = parseInt(productPrices[index].innerText.replace(/[^0-9]/g, ""));
+  totalQuantity += quantity;
+  totalPrice += price * quantity;
+});
+
+const shippingCost = 3000;
+const grandTotal = totalPrice + shippingCost;
+
+// 총 금액 나타내기
+// const cartPrice = document.querySelector(".cartPrice");
+// cartPrice.innerHTML = `<div class="cartAllPrice">
+// <div class="cartAllCount"><p>총 주문 상품 개</p></div>
+// <div class="cartAllOrderPrice">
+// <div>
+// <p>원 + 원 = 원</p>
+// <p>상품금액 + 배송비 = 총 주문 금액</p>
+// </div>
+// </div>
+// </div>`;
+
+const cartPrice = document.querySelector(".cartPrice");
+cartPrice.innerHTML = `
+  <div class="cartAllPrice">
+    <div class="cartAllCount">
+      <p>총 주문 상품 개수: ${totalQuantity}개</p>
+    </div>
+    <div class="cartAllOrderPrice">
+      <div>
+        <p>상품금액: ${totalPrice.toLocaleString()}원</p>
+        <p>배송비: ${shippingCost.toLocaleString()}원</p>
+        <p><b>총 주문 금액: ${grandTotal.toLocaleString()}원</b></p>
+      </div>
+    </div>
+  </div>
+`;
+
+console.log("총 금액:", grandTotal);

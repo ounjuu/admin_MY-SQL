@@ -165,7 +165,7 @@ const getCartAllProduct = async (req, res) => {
   data.forEach((product) => {
     product.price = parseInt(product.price).toLocaleString() + " 원";
   });
-  res.render("products/cart", { data });
+  res.render("products/cart", { data, totalPrice });
 };
 
 // 장바구니 컨드롤러
@@ -225,6 +225,19 @@ const deleteCartData = async (req, res) => {
   return res.status(200).json({ success: true, message: "삭제 성공" });
 };
 
+const deleteAllCartData = async (req, res) => {
+  try {
+    await adminModel.deleteAllCartItems();
+    return res
+      .status(200)
+      .json({ success: true, message: "장바구니 전체 삭제 성공" });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ success: false, message: "삭제 실패", error });
+  }
+};
+
 // about 소개 페이지
 const getAboutPage = (req, res) => {
   res.render("products/about");
@@ -247,4 +260,5 @@ module.exports = {
   updateCartQuantity,
   deleteCartData,
   getAboutPage,
+  deleteAllCartData,
 };
