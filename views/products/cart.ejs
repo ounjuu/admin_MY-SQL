@@ -76,7 +76,7 @@
                     onchange="quantitychange('<%= item.cart_id %>', this.value, '<%= item.price %>', '<%= item.product_id %>')"
                   />
                 </div>
-                <div class="productPrice" id="price-<%= item.cart_id %>">
+                <div class="productPrices" id="price-<%= item.cart_id %>">
                   <%= (item.price * item.total_quantity).toLocaleString() %> 원
                 </div>
                 <div class="buttonWrap">

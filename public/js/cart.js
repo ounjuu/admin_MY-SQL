@@ -7,9 +7,9 @@ function quantitychange(cartItemId, newQuantity, pricePerItem, product_id) {
     })
     .then((response) => {
       if (response.data.success) {
-        console.log("수량 변경 성공!");
         const newTotalPrice = pricePerItem * newQuantity;
         updateTotalPrice(cartItemId, newTotalPrice);
+        window.location.reload();
       } else {
         alert("수량 변경 실패");
       }
@@ -127,20 +127,21 @@ window.onload = () => {
   updateCartUI();
 };
 
-const productPrices = document.querySelectorAll(".quantity-input");
-const quantityInputs = document.querySelectorAll(".productPrice");
+const quantityInputs = document.querySelectorAll(".quantity-input");
+const productPrices2 = document.querySelectorAll(".productPrices");
 
 let totalPrice = 0;
 let totalQuantity = 0;
 
 quantityInputs.forEach((input, index) => {
   const quantity = parseInt(input.value); // 수량
-  const price = parseInt(productPrices[index].innerText.replace(/[^0-9]/g, ""));
+  const priceText = productPrices2[index].innerText || "0"; // 가격 (text 가져오기)
+  const price = parseInt(priceText.replace(/[^0-9]/g, "")) || 0; // 숫자만 추출
   totalQuantity += quantity;
   totalPrice += price * quantity;
 });
 
-const shippingCost = 3000;
+let shippingCost = totalPrice >= 100000 ? 0 : 3000;
 const grandTotal = totalPrice + shippingCost;
 
 // 총 금액 나타내기
