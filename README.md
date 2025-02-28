@@ -78,7 +78,12 @@
 <div align="center"><img width="80%" alt="image" src="https://github.com/user-attachments/assets/ca015e2e-d3bb-436c-a9f0-4d42ad87f16a" /></div><br/>
 
 #### 1. 수량을 변경하면 금액이 같이 변경되도록 하였습니다. <br/>
-#### 2. 변경된 정보는 DB에 저장됩니다. <br/><br/>
+#### 2. 변경된 정보는 DB에 저장됩니다. <br/>
+#### 3. 100,000원 이상이면 배송비와 총 금액이 변경됩니다. <br/>
+#### 3. 장바구니 비우기 버튼을 누르면 전체 상품이 지워지고 비어있다는 창이 뜨도록 하였습니다. <br/><br/>
+<div align="center">
+<img width="80%" alt="image" src="https://github.com/user-attachments/assets/1468750c-3ce9-41e9-897a-f232db754046" /></div>
+
 
 ### 📑 5. CSS (반응형 및 스크롤바 변경 등)
  ✅ 모든 페이지는 반응형으로 구현하였습니다. <br/>
