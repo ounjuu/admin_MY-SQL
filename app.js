@@ -27,7 +27,9 @@ app.use("/products", adminRouters);
 // 정적 파일 제공
 app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
-
+app.get("/", (req, res) => {
+  res.render("index");
+});
 // EJS 설정
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
