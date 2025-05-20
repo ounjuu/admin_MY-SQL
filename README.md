@@ -10,6 +10,11 @@
  1. 상품을 등록하고 관리할 수 있는 웹 사이트 입니다.
  2. MySQL 데이터베이스와 JavaScript, Node.js를 사용하여 상품 정보를 저장하고, 관리할 수 있는 시스템을 구축하였습니다.<br/><br/>
 
+## 🔅 프로젝트 실행
+```
+- npm i > nodemon app.js
+```
+
 ## :high_brightness: 개발 환경
 <div align="center">
 <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/>
